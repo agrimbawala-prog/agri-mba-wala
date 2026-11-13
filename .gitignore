@@ -30,6 +30,9 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
+# Local, non-distributable source-site audit captures
+/.tmp/
+
 # env files (can opt-in for committing if needed)
 .env*
 
