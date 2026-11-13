@@ -16,6 +16,9 @@ function getPreferredLocale(request: NextRequest) {
 
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
+  if (pathname === "/admin" || pathname.startsWith("/admin/")) {
+    return NextResponse.next();
+  }
   const hasLocale = supportedLocales.some(
     (locale) => pathname === "/" + locale || pathname.startsWith("/" + locale + "/"),
   );
@@ -30,5 +33,5 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!api|_next/static|_next/image|icon.svg|robots.txt|sitemap.xml|.*\\..*).*)"],
+  matcher: ["/((?!api|admin|_next/static|_next/image|icon.svg|robots.txt|sitemap.xml|.*\\..*).*)"],
 };

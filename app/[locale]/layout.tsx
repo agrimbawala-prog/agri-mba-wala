@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { hasLocale, locales } from "@/lib/i18n/config";
+import { getSiteUrl } from "@/lib/site-url";
 
 import "../globals.css";
 
@@ -27,7 +28,7 @@ export async function generateMetadata({
   const dictionary = getDictionary(locale);
 
   return {
-    metadataBase: new URL("https://agrimbawala.example"),
+    metadataBase: new URL(getSiteUrl()),
     title: {
       default: dictionary.metadata.title,
       template: "%s | AGRI MBA WALA",
@@ -42,13 +43,14 @@ export async function generateMetadata({
       "farm knowledge",
       "AGRI MBA WALA",
     ],
-    robots: { index: false, follow: false },
+    robots: { index: true, follow: true },
     openGraph: {
       type: "website",
       siteName: "AGRI MBA WALA",
       title: dictionary.metadata.title,
       description: dictionary.metadata.description,
       locale: locale === "mr" ? "mr_IN" : "en_IN",
+      url: `/${locale}`,
     },
     twitter: {
       card: "summary_large_image",
@@ -57,6 +59,10 @@ export async function generateMetadata({
     },
     icons: {
       icon: "/icon.svg",
+    },
+    alternates: {
+      canonical: `/${locale}`,
+      languages: { en: "/en", mr: "/mr" },
     },
   };
 }

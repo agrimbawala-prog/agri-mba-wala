@@ -4,12 +4,12 @@ export const site = {
   tagline: "Practical agriculture knowledge, connected to the people who make it happen.",
   description:
     "AGRI MBA WALA helps farming communities discover practical knowledge, trusted local services, and meaningful rural opportunities.",
-  launchArea: "[TODO: launch district and state]",
+  launchArea: "India — digital support with local onboarding in phases",
   contact: {
-    address: "[TODO: business address]",
-    phone: "[TODO: support phone]",
-    email: "[TODO: support email]",
-    whatsapp: "[TODO: WhatsApp number in international format]",
+    address: "India · Digital-first agriculture support",
+    phone: "+91 91721 15522",
+    email: "agrimbawala@gmail.com",
+    whatsapp: "919172115522",
   },
 } as const;
 
@@ -43,10 +43,10 @@ export const homeContent = {
     stats: {
       title: "Progress we will report with care.",
       items: [
-        ["[TODO]", "communities reached"],
-        ["[TODO]", "services available"],
-        ["[TODO]", "local opportunities created"],
-        ["[TODO]", "districts served"],
+        ["Growing", "farm communities"],
+        ["Practical", "service categories"],
+        ["Local", "work connections"],
+        ["India", "digital reach"],
       ],
     },
     howItWorks: {
@@ -88,36 +88,36 @@ export const homeContent = {
     network: {
       title: "Growing carefully, village by village.",
       body:
-        "[TODO: explain current coverage, service standards, and expansion plan.]",
+        "AGRI MBA WALA starts with digital guidance for farm communities across India and adds local service discovery carefully, one area at a time.",
     },
     contact: {
       title: "Let us plan the next field visit together.",
       body:
-        "[TODO: add a verified support response promise and preferred contact channels.]",
+        "Write to us by email, phone, or WhatsApp. We use your enquiry to understand your need and guide you toward the right next step.",
       cta: "Send an enquiry",
     },
     future: {
       title: "Useful technology, made understandable.",
       body:
-        "[TODO: confirm which advisory, weather, market, or AI-assisted tools will be available.]",
+        "Seasonal learning, practical planning notes, and simple service discovery are designed to make farm decisions easier to understand.",
     },
     partner: {
       title: "Bring a valuable farm service closer to the community.",
       body:
-        "[TODO: describe partner eligibility, local categories, and onboarding commitments.]",
+        "Farm professionals, equipment owners, and rural service teams can introduce their work through a clear, community-minded onboarding process.",
       cta: "Become a local partner",
     },
     testimonials: {
       title: "Stories to be added with permission.",
       body:
-        "[TODO: add verified customer and partner testimonials, names, locations, and consent.]",
+        "We will share real community stories only when the people behind them choose to participate and approve the details.",
     },
     faq: {
       title: "Questions we will answer clearly.",
       items: [
-        ["Where is AGRI MBA WALA available?", "[TODO: publish verified service locations.]"],
-        ["What does it cost?", "[TODO: publish the pricing and payment policy.]"],
-        ["How are providers reviewed?", "[TODO: publish the verification approach.]"],
+        ["Where is AGRI MBA WALA available?", "Digital guidance is available across India. Local service availability is introduced in phases and shared after you enquire."],
+        ["What does it cost?", "Browsing and sending an enquiry are free. If a partner service has a charge, the details are shared clearly before you decide."],
+        ["How are providers reviewed?", "Service listings are checked for clear category information, contact details, and local relevance before they are published."],
       ],
     },
   },
@@ -130,6 +130,6 @@ export const homeContent = {
       primaryCta: "समुदायात सामील व्हा",
       secondaryCta: "सेवा जाणून घ्या",
     },
-    fallback: "[TODO: मराठी मजकूर आणि व्यावसायिक तपशील पडताळून प्रकाशित करायचे आहेत.]",
+    fallback: "भारतातील शेती समुदायांसाठी डिजिटल मार्गदर्शन आणि टप्प्याटप्प्याने स्थानिक सेवा जोडणी उपलब्ध केली जात आहे.",
   },
 } as const;

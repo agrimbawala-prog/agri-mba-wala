@@ -27,14 +27,14 @@ The mark is original artwork. It combines cultivated field lines, a seedling, an
 
 ## Content policy
 
-All user-facing content added for the target is original. Unknown operational facts are intentionally marked [TODO]; this includes launch geography, contact details, WhatsApp number, service eligibility, coverage claims, pricing, verification policy, partner terms, testimonials, store links, and AI-feature availability.
+All user-facing content added for the target is original. The published site uses cautious, non-numeric language for coverage, service availability, and partner processes until AGRI MBA WALA has verified operational data to publish.
 
 The replacement will keep the source site’s broad information hierarchy but will use AGRI MBA WALA’s original copy and artwork throughout.
 
 ## Inputs still needed
 
-1. Launch area and service coverage.
-2. Support phone, email, address, WhatsApp number, and social profiles.
+1. Specific local launch areas, physical address (if published), and service coverage.
+2. Social profile links.
 3. Final English/Marathi language scope; Hindi remains optional.
 4. Live service catalogue and eligibility rules for farmer, labour, tractor-owner, and provider registrations.
 5. Verifiable statistics, testimonials, and logo permissions.
