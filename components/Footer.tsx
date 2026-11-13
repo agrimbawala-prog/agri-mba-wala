@@ -7,9 +7,10 @@ import type { MarketingCopy } from "@/lib/marketing-content";
 type FooterProps = {
   locale: Locale;
   copy: MarketingCopy["footer"];
+  nav: MarketingCopy["nav"];
 };
 
-export function Footer({ locale, copy }: FooterProps) {
+export function Footer({ locale, copy, nav }: FooterProps) {
   return (
     <footer className="site-footer" id="contact">
       <div className="page-shell footer-grid">
@@ -19,10 +20,11 @@ export function Footer({ locale, copy }: FooterProps) {
         </div>
         <div>
           <h2>{copy.explore}</h2>
-          <a href="#services">Services</a>
-          <a href="#how-it-works">How it works</a>
-          <a href="#community">Community</a>
-          <a href="#faq">FAQ</a>
+          <Link href={`/${locale}`}>{nav.home}</Link>
+          <Link href={`/${locale}#how-it-works`}>{nav.howItWorks}</Link>
+          <Link href={`/${locale}#marketplace`}>{nav.marketplace}</Link>
+          <Link href={`/${locale}/solutions/farmers`}>{nav.forFarmers}</Link>
+          <Link href={`/${locale}/solutions/providers`}>{nav.forProviders}</Link>
         </div>
         <div>
           <h2>{copy.contact}</h2>

@@ -1,7 +1,7 @@
 import type { Locale } from "@/lib/i18n/config";
 
 type MarketingCopy = {
-  nav: Record<"services" | "howItWorks" | "community" | "faq" | "contact" | "join", string>;
+  nav: Record<"home" | "howItWorks" | "marketplace" | "solutions" | "forFarmers" | "forProviders" | "partner" | "contact", string>;
   hero: {
     eyebrow: string;
     title: string;
@@ -16,6 +16,13 @@ type MarketingCopy = {
   promise: { eyebrow: string; title: string; body: string; points: string[] };
   steps: { eyebrow: string; title: string; items: [string, string, string][] };
   services: { eyebrow: string; title: string; intro: string; items: [string, string][] };
+  solutions: {
+    eyebrow: string;
+    title: string;
+    body: string;
+    farmers: { title: string; body: string; action: string };
+    providers: { title: string; body: string; action: string };
+  };
   people: { eyebrow: string; title: string; body: string; items: [string, string, string][] };
   coverage: { eyebrow: string; title: string; body: string; label: string; value: string; action: string };
   future: { eyebrow: string; title: string; body: string; cards: [string, string][] };
@@ -49,12 +56,14 @@ type MarketingCopy = {
 
 const english: MarketingCopy = {
   nav: {
-    services: "Services",
+    home: "Home",
     howItWorks: "How it works",
-    community: "For the community",
-    faq: "FAQ",
+    marketplace: "Marketplace",
+    solutions: "Solutions",
+    forFarmers: "For Farmers",
+    forProviders: "For Providers",
+    partner: "Partner with us",
     contact: "Contact",
-    join: "Join us",
   },
   hero: {
     eyebrow: "Practical thinking for everyday farming",
@@ -62,8 +71,8 @@ const english: MarketingCopy = {
     emphasis: "with a clearer next step.",
     description:
       "AGRI MBA WALA is building a friendly place to find useful farm knowledge, local services, and meaningful rural opportunities.",
-    primaryCta: "Join the community",
-    secondaryCta: "Explore support",
+    primaryCta: "Ask for support",
+    secondaryCta: "Explore marketplace",
     note: "Digital guidance for India · local service access introduced in phases",
   },
   proof: ["Local-first guidance", "People-powered services", "Clearer farm decisions"],
@@ -112,6 +121,13 @@ const english: MarketingCopy = {
       ["Rural livelihoods", "Open clearer paths for local skills and services."],
       ["Learning sessions", "Build confidence through practical community learning."],
     ],
+  },
+  solutions: {
+    eyebrow: "Choose your path",
+    title: "Simple support for the people who make farming work.",
+    body: "Choose the page that fits your role. We will guide you to the most relevant next step.",
+    farmers: { title: "For Farmers", body: "Find practical guidance and ask about the farm support you need.", action: "Explore farmer solutions" },
+    providers: { title: "For Providers", body: "Introduce your equipment, skills, or rural service to local farm communities.", action: "Explore provider solutions" },
   },
   people: {
     eyebrow: "Built around people",
@@ -207,14 +223,14 @@ const english: MarketingCopy = {
 
 const marathi: MarketingCopy = {
   ...english,
-  nav: { services: "सेवा", howItWorks: "कसे काम करते", community: "समुदायासाठी", faq: "प्रश्न", contact: "संपर्क", join: "सहभागी व्हा" },
+  nav: { home: "मुख्यपृष्ठ", howItWorks: "कसे काम करते", marketplace: "मार्केटप्लेस", solutions: "उपाय", forFarmers: "शेतकऱ्यांसाठी", forProviders: "सेवा पुरवठादारांसाठी", partner: "भागीदार व्हा", contact: "संपर्क" },
   hero: {
     eyebrow: "दैनंदिन शेतीसाठी उपयुक्त विचार",
     title: "सक्षम ग्रामीण जाळ्याची सुरुवात होते",
     emphasis: "योग्य पुढच्या पावलाने.",
     description: "AGRI MBA WALA उपयुक्त शेती ज्ञान, स्थानिक सेवा आणि ग्रामीण संधी एकमेकांच्या जवळ आणण्याचा प्रयत्न करतो.",
-    primaryCta: "समुदायात सामील व्हा",
-    secondaryCta: "मदत जाणून घ्या",
+    primaryCta: "मदतीसाठी विचारा",
+    secondaryCta: "मार्केटप्लेस पहा",
     note: "भारतातील डिजिटल मार्गदर्शन · स्थानिक सेवा टप्प्याटप्प्याने सुरू",
   },
   proof: ["स्थानिक मार्गदर्शन", "लोककेंद्रित सेवा", "स्पष्ट शेती निर्णय"],
@@ -236,6 +252,7 @@ const marathi: MarketingCopy = {
     items: [["०१", "गरज सांगा", "मार्गदर्शन, काम, यंत्र किंवा सेवांची गरज निवडा."], ["०२", "योग्य पर्याय पहा", "कामाशी जुळणारी माहिती आणि स्थानिक वर्ग शोधा."], ["०३", "एकत्र कृती करा", "पुढचा टप्पा ठरवा आणि आपले नियोजन स्वतःच्या हाती ठेवा."]],
   },
   services: { ...english.services, eyebrow: "एक शेती प्रवास", title: "पिकापूर्वी, पिकादरम्यान आणि नंतरच्या कामांसाठी मदत.", intro: "सेवेची उपलब्धता आणि पात्रता भागानुसार प्रकाशित केली जाईल." },
+  solutions: { eyebrow: "तुमचा मार्ग निवडा", title: "शेतीला सक्षम करणाऱ्या लोकांसाठी सोपी मदत.", body: "तुमच्या भूमिकेशी जुळणारे पान निवडा. योग्य पुढच्या टप्प्यासाठी आम्ही मार्गदर्शन करू.", farmers: { title: "शेतकऱ्यांसाठी", body: "उपयुक्त मार्गदर्शन मिळवा आणि तुमच्या शेतीच्या गरजेसाठी मदत विचारा.", action: "शेतकरी उपाय पहा" }, providers: { title: "सेवा पुरवठादारांसाठी", body: "तुमचे यंत्र, कौशल्य किंवा ग्रामीण सेवा शेतकरी समुदायापर्यंत पोहोचवा.", action: "सेवा पुरवठादार उपाय पहा" } },
   people: { ...english.people, eyebrow: "लोकांभोवती रचना", title: "प्रत्येक चांगल्या हंगामामागे एकापेक्षा अधिक तज्ज्ञ असतात.", body: "ग्रामीण अर्थव्यवस्थेतील प्रत्येक भूमिकेचा सन्मान ठेवून योग्य जोडणी सुलभ करणे हे उद्दिष्ट आहे." },
   coverage: { ...english.coverage, eyebrow: "काळजीपूर्वक विस्तार", title: "शेताजवळून सुरुवात, शिकत विस्तार.", body: "भारतात डिजिटल मार्गदर्शन उपलब्ध आहे. स्थानिक सेवा प्रत्येक भागात काळजीपूर्वक टप्प्याटप्प्याने जोडल्या जातात.", label: "सध्याची उपलब्धता", value: "भारत · डिजिटल मदत आणि टप्प्याटप्प्याने स्थानिक सेवा", action: "तुमच्या भागाबद्दल विचारा" },
   future: { ...english.future, eyebrow: "उद्देशपूर्ण तंत्रज्ञान", title: "डिजिटल साधने लोकांना अधिक तयार वाटू देणारी असावीत.", body: "नवीन सुविधा आधी शेती समुदायासोबत तपासल्या जातील आणि सोप्या भाषेत समजावल्या जातील." },
