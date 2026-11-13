@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 416 96" role="img" aria-labelledby="title description">
+  <title id="title">AGRI MBA WALA logo</title>
+  <desc id="description">An original seedling, field, and learning-path mark beside the AGRI MBA WALA wordmark.</desc>
+  <defs>
+    <linearGradient id="leaf" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#2e7d52"/>
+      <stop offset="1" stop-color="#174d34"/>
+    </linearGradient>
+    <linearGradient id="sun" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#ffca55"/>
+      <stop offset="1" stop-color="#e89524"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(8 8)">
+    <rect width="80" height="80" rx="24" fill="#edf6ee"/>
+    <path d="M12 55c12-8 23-11 34-11 10 0 18 2 28 8v13H12V55Z" fill="#174d34"/>
+    <path d="M14 58c12-7 24-9 34-9 11 0 19 2 26 6" fill="none" stroke="#e8a42e" stroke-linecap="round" stroke-width="3"/>
+    <path d="M21 66c10-6 20-8 29-8 8 0 15 1 22 5" fill="none" stroke="#fff9ed" stroke-linecap="round" stroke-width="2.5"/>
+    <path d="M42 45V30" fill="none" stroke="#174d34" stroke-linecap="round" stroke-width="4"/>
+    <path d="M42 34c-10-1-17-8-17-17 9 0 17 5 17 17Z" fill="url(#leaf)"/>
+    <path d="M45 36c1-11 8-18 19-19 0 10-6 18-19 19Z" fill="#3c9b64"/>
+    <path d="M26 18h33l-5 6H31l-5-6Zm10 7h14v5H36v-5Z" fill="url(#sun)"/>
+  </g>
+  <g fill="#174d34">
+    <text x="108" y="42" font-family="Arial, Helvetica, sans-serif" font-size="27" font-weight="800" letter-spacing="1.4">AGRI MBA</text>
+    <text x="108" y="70" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="800" letter-spacing="2.5" fill="#9a6217">WALA</text>
+  </g>
+  <path d="M245 63h147" stroke="#e8a42e" stroke-linecap="round" stroke-width="3"/>
+  <text x="256" y="82" fill="#52705e" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="700" letter-spacing="1.4">FIELD TO FUTURE</text>
+</svg>
