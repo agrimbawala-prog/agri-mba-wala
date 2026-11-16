@@ -19,7 +19,8 @@ export function InquiryForm({ kind, copy }: InquiryFormProps) {
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setStatus("idle");
-    const form = new FormData(event.currentTarget);
+    const formElement = event.currentTarget;
+    const form = new FormData(formElement);
     const candidate = {
       kind,
       audience: String(form.get("audience") || "") || undefined,
@@ -56,7 +57,7 @@ export function InquiryForm({ kind, copy }: InquiryFormProps) {
         setStatus("error");
         return;
       }
-      event.currentTarget.reset();
+      formElement.reset();
       setStatus("success");
     } catch {
       setStatus("error");
