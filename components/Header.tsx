@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { type MouseEvent, useEffect, useState } from "react";
 
 import { BrandLogo } from "@/components/BrandLogo";
 import { ChevronDownIcon, CloseIcon, MenuIcon } from "@/components/SiteIcons";
@@ -23,6 +23,14 @@ export function Header({ locale, copy, path = "" }: HeaderProps) {
   const home = `/${locale}`;
   const isSolutionsPage = pathname.startsWith(`${home}/solutions/`);
   const closeMenu = () => setIsOpen(false);
+  const handleHomeClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    closeMenu();
+    if (pathname !== home) return;
+    event.preventDefault();
+    window.history.replaceState(null, "", home);
+    setHash("");
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  };
 
   useEffect(() => {
     const updateHash = () => setHash(window.location.hash);
@@ -37,10 +45,35 @@ export function Header({ locale, copy, path = "" }: HeaderProps) {
     }
   }, [pathname]);
 
+  useEffect(() => {
+    if (pathname !== home) return;
+
+    const sections = ["about", "how-it-works", "partner", "contact"]
+      .map((id) => document.getElementById(id))
+      .filter((section): section is HTMLElement => section !== null);
+    if (!sections.length) return;
+
+    const updateActiveSection = () => {
+      if (window.scrollY < 120) {
+        setHash("");
+        return;
+      }
+
+      const current = sections
+        .filter((section) => section.getBoundingClientRect().top <= window.innerHeight * 0.4)
+        .at(-1);
+      if (current) setHash(`#${current.id}`);
+    };
+
+    updateActiveSection();
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+    return () => window.removeEventListener("scroll", updateActiveSection);
+  }, [home, pathname]);
+
   const links = [
     [home, copy.home],
-    [`${home}#how-it-works`, copy.howItWorks],
     [`${home}#about`, copy.about],
+    [`${home}#how-it-works`, copy.howItWorks],
     [`${home}#partner`, copy.partner],
     [`${home}#contact`, copy.contact],
   ];
@@ -53,11 +86,11 @@ export function Header({ locale, copy, path = "" }: HeaderProps) {
   return (
     <header className="site-header">
       <div className="page-shell header-inner">
-        <Link aria-label="AGRI MBA WALA home" href={home} className="header-logo" onClick={closeMenu}>
+        <Link aria-label="AGRI MBA WALA home" href={home} className="header-logo" onClick={handleHomeClick}>
           <BrandLogo priority className="h-auto w-44 sm:w-48" />
         </Link>
         <nav className="desktop-nav" aria-label="Primary navigation">
-          {links.slice(0, 3).map(([href, label]) => <Link key={href} href={href} className={isLinkActive(href) ? "active-nav-link" : undefined} aria-current={isLinkActive(href) ? "page" : undefined}>{label}</Link>)}
+          {links.slice(0, 3).map(([href, label]) => <Link key={href} href={href} onClick={href === home ? handleHomeClick : undefined} className={isLinkActive(href) ? "active-nav-link" : undefined} aria-current={isLinkActive(href) ? "page" : undefined}>{label}</Link>)}
           <SolutionsMenu key={`desktop-${pathname}`} locale={locale} copy={copy} isActive={isSolutionsPage} />
           {links.slice(3).map(([href, label]) => <Link key={href} href={href} className={isLinkActive(href) ? "active-nav-link" : undefined} aria-current={isLinkActive(href) ? "page" : undefined}>{label}</Link>)}
         </nav>
@@ -65,7 +98,7 @@ export function Header({ locale, copy, path = "" }: HeaderProps) {
       </div>
       <div id="mobile-menu" className={isOpen ? "mobile-menu mobile-menu-open" : "mobile-menu"} aria-hidden={!isOpen}>
         <nav aria-label="Mobile navigation">
-          {links.slice(0, 3).map(([href, label]) => <Link key={href} href={href} onClick={closeMenu} className={isLinkActive(href) ? "active-nav-link" : undefined} aria-current={isLinkActive(href) ? "page" : undefined}>{label}</Link>)}
+          {links.slice(0, 3).map(([href, label]) => <Link key={href} href={href} onClick={href === home ? handleHomeClick : closeMenu} className={isLinkActive(href) ? "active-nav-link" : undefined} aria-current={isLinkActive(href) ? "page" : undefined}>{label}</Link>)}
           <SolutionsMenu key={`mobile-${pathname}`} locale={locale} copy={copy} isActive={isSolutionsPage} onNavigate={closeMenu} />
           {links.slice(3).map(([href, label]) => <Link key={href} href={href} onClick={closeMenu} className={isLinkActive(href) ? "active-nav-link" : undefined} aria-current={isLinkActive(href) ? "page" : undefined}>{label}</Link>)}
         </nav>

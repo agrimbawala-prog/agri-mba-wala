@@ -132,9 +132,8 @@ const english: MarketingCopy = {
       ["Local strength", "We believe lasting progress grows from capable local people and communities."],
     ],
     team: [
-      ["The field team", "Community insight", "Listening to farmers and local partners so every decision stays grounded in real needs."],
-      ["The product team", "Simple technology", "Turning complex information into calm, useful digital experiences."],
-      ["The partner team", "Rural connections", "Building transparent relationships with service providers and agricultural communities."],
+      ["Datta Sabale", "Founder", "Guiding AGRI MBA WALA with a clear focus on practical rural impact."],
+      ["Rohit Thorat", "Tech Lead", "Building simple, reliable technology for stronger agricultural connections."],
     ],
   },
   services: {
@@ -222,7 +221,7 @@ const english: MarketingCopy = {
   form: {
     registrationTitle: "Tell us how you want to contribute.",
     registrationBody: "Share your details and we will contact you when verified activity begins in your area.",
-    contactTitle: "Start a useful conversation.",
+    contactTitle: "Get in touch",
     contactBody: "For questions, partnerships, or location requests, send a short note to the AGRI MBA WALA team.",
     name: "Full name",
     phone: "Phone number",
@@ -306,9 +305,8 @@ const marathi: MarketingCopy = {
       ["स्थानिक बळ", "शाश्वत प्रगती स्थानिक लोक आणि समुदायांमधून घडते."],
     ],
     team: [
-      ["फील्ड टीम", "समुदाय समज", "शेतकरी आणि स्थानिक भागीदारांचे ऐकून खऱ्या गरजांवर लक्ष केंद्रित करते."],
-      ["उत्पादन टीम", "सोपे तंत्रज्ञान", "गुंतागुंतीची माहिती उपयुक्त डिजिटल अनुभवात रूपांतरित करते."],
-      ["भागीदार टीम", "ग्रामीण जोडणी", "सेवा पुरवठादार आणि कृषी समुदायांमध्ये पारदर्शक नाती तयार करते."],
+      ["Datta Sabale", "संस्थापक", "व्यावहारिक ग्रामीण परिणामांवर लक्ष केंद्रित करून AGRI MBA WALA ला दिशा देतात."],
+      ["Rohit Thorat", "तंत्रज्ञान प्रमुख", "मजबूत कृषी जोडणीसाठी सोपे आणि विश्वासार्ह तंत्रज्ञान तयार करतात."],
     ],
   },
   services: { ...english.services, eyebrow: "एक शेती प्रवास", title: "पिकापूर्वी, पिकादरम्यान आणि नंतरच्या कामांसाठी मदत.", intro: "सेवेची उपलब्धता आणि पात्रता भागानुसार प्रकाशित केली जाईल." },
@@ -319,7 +317,7 @@ const marathi: MarketingCopy = {
   partner: { ...english.partner, eyebrow: "स्थानिक तज्ज्ञांसाठी", title: "तुमची उपयुक्त सेवा गरजू शेतापर्यंत पोहोचवा.", body: "तुम्ही ग्रामीण सेवा देत असाल तर तुमच्या कामाविषयी सांगा. पारदर्शक भागीदार प्रक्रिया तयार होत आहे.", action: "भागीदार म्हणून नोंदणी करा" },
   stories: { ...english.stories, eyebrow: "संमतीसह कथा", title: "विश्वास उधार घेतलेल्या दाव्यांनी नव्हे, तपशीलांनी निर्माण होतो.", body: "समुदाय सदस्यांनी सामायिक करण्याची निवड केल्यानंतर येथे पडताळलेले अनुभव जोडले जातील." },
   faq: { ...english.faq, eyebrow: "सुरुवातीपूर्वी", title: "सेवा प्रत्यक्ष सुरू होताच स्पष्ट उत्तरे प्रकाशित केली जातील." },
-  form: { ...english.form, registrationTitle: "तुम्ही कसे जोडले जाऊ इच्छिता ते सांगा.", registrationBody: "तुमचे तपशील शेअर करा. तुमच्या भागात पडताळलेली सेवा सुरू झाल्यावर आम्ही संपर्क करू.", contactTitle: "उपयुक्त संवाद सुरू करा.", contactBody: "प्रश्न, भागीदारी किंवा क्षेत्र विनंतीसाठी AGRI MBA WALA टीमला संदेश पाठवा.", name: "पूर्ण नाव", phone: "फोन क्रमांक", email: "ईमेल पत्ता", district: "जिल्हा", village: "गाव / शहर", audience: "मी आहे…", subject: "विषय निवडा", subjectOptions: ["सामान्य चौकशी", "तांत्रिक चौकशी", "भागीदारी चौकशी"], message: "संदेश", consent: "या विनंतीला उत्तर देण्यासाठी AGRI MBA WALA माझे तपशील वापरू शकते यास मी सहमती देतो/देते.", submitRegistration: "माझी माहिती पाठवा", submitContact: "चौकशी पाठवा", sending: "पाठवत आहे…", success: "धन्यवाद — तुमची चौकशी मिळाली आहे. शेअर केलेल्या तपशीलांवर आम्ही संपर्क करू.", error: "सध्या पाठवता आले नाही. ठळक केलेली माहिती तपासून पुन्हा प्रयत्न करा.", audiences: [["farmer", "शेतकरी"], ["labour", "शेतमजूर"], ["tractor-owner", "ट्रॅक्टर मालक"], ["service-provider", "सेवा पुरवठादार"]] },
+  form: { ...english.form, registrationTitle: "तुम्ही कसे जोडले जाऊ इच्छिता ते सांगा.", registrationBody: "तुमचे तपशील शेअर करा. तुमच्या भागात पडताळलेली सेवा सुरू झाल्यावर आम्ही संपर्क करू.", contactTitle: "संपर्क साधा", contactBody: "प्रश्न, भागीदारी किंवा क्षेत्र विनंतीसाठी AGRI MBA WALA टीमला संदेश पाठवा.", name: "पूर्ण नाव", phone: "फोन क्रमांक", email: "ईमेल पत्ता", district: "जिल्हा", village: "गाव / शहर", audience: "मी आहे…", subject: "विषय निवडा", subjectOptions: ["सामान्य चौकशी", "तांत्रिक चौकशी", "भागीदारी चौकशी"], message: "संदेश", consent: "या विनंतीला उत्तर देण्यासाठी AGRI MBA WALA माझे तपशील वापरू शकते यास मी सहमती देतो/देते.", submitRegistration: "माझी माहिती पाठवा", submitContact: "चौकशी पाठवा", sending: "पाठवत आहे…", success: "धन्यवाद — तुमची चौकशी मिळाली आहे. शेअर केलेल्या तपशीलांवर आम्ही संपर्क करू.", error: "सध्या पाठवता आले नाही. ठळक केलेली माहिती तपासून पुन्हा प्रयत्न करा.", audiences: [["farmer", "शेतकरी"], ["labour", "शेतमजूर"], ["tractor-owner", "ट्रॅक्टर मालक"], ["service-provider", "सेवा पुरवठादार"]] },
   footer: { ...english.footer, summary: "प्रत्येक हंगामामागील लोकांसाठी उपयुक्त ज्ञान आणि मजबूत स्थानिक जोडणी.", address: "पुणे, महाराष्ट्र · भारत", explore: "माहिती", contact: "संपर्क", legal: "कायदेशीर", copyright: "AGRI MBA WALA. सक्षम शेती समुदायांसाठी." },
   whatsapp: "WhatsApp वर बोला",
 };
