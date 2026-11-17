@@ -5,7 +5,7 @@ import { FieldScene } from "@/components/FieldScene";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { InquiryForm } from "@/components/InquiryForm";
-import { ArrowIcon, CheckIcon, WhatsAppIcon } from "@/components/SiteIcons";
+import { ArrowIcon, CheckIcon, SocialIcon, WhatsAppIcon } from "@/components/SiteIcons";
 import { SectionHeading } from "@/components/SectionHeading";
 import { hasLocale } from "@/lib/i18n/config";
 import { getMarketingCopy } from "@/lib/marketing-content";
@@ -31,18 +31,30 @@ export default async function LocaleHome({ params }: LocaleHomeProps) {
               <p className="eyebrow hero-eyebrow"><span />{copy.hero.eyebrow}</p>
               <h1>{copy.hero.title} <em>{copy.hero.emphasis}</em></h1>
               <p className="hero-description">{copy.hero.description}</p>
-              <div className="hero-actions"><a className="button button-solid" href="#contact">{copy.hero.primaryCta}<ArrowIcon /></a><a className="button button-outline" href="#marketplace">{copy.hero.secondaryCta}</a></div>
+              <div className="hero-actions"><a className="button button-solid" href="#contact">{copy.hero.primaryCta}<ArrowIcon /></a><a className="button button-outline" href="#about">{copy.hero.secondaryCta}</a></div>
               <p className="hero-note"><span aria-hidden="true" />{copy.hero.note}</p>
             </div>
             <div className="hero-visual"><FieldScene /><div className="visual-label visual-label-top">LOCAL<br />KNOWLEDGE</div><div className="visual-label visual-label-bottom">FIELD<br />READY</div></div>
           </div>
         </section>
 
+        <section className="section about-section" id="about">
+          <div className="page-shell about-grid">
+            <div className="section-heading"><p className="eyebrow">{copy.about.eyebrow}</p><h2>{copy.about.title}</h2><p className="section-intro">{copy.about.body}</p></div>
+            <div className="about-points">{copy.about.points.map(([title, body], index) => <article key={title}><span>0{index + 1}</span><h3>{title}</h3><p>{body}</p></article>)}</div>
+          </div>
+          <div className="page-shell vision-mission-grid">
+            {[copy.about.vision, copy.about.mission].map(([title, body]) => <article key={title}><p className="eyebrow">{title}</p><p>{body}</p></article>)}
+          </div>
+          <div className="page-shell about-subsection"><SectionHeading eyebrow="What guides us" title="Our core values" align="center" /><div className="values-grid">{copy.about.values.map(([title, body]) => <article key={title}><h3>{title}</h3><p>{body}</p></article>)}</div></div>
+          <div className="page-shell about-subsection"><SectionHeading eyebrow="The people behind the work" title="Meet our team" align="center" /><div className="team-grid">{copy.about.team.map(([title, role, body]) => <article key={title}><span>{title.charAt(0)}</span><p>{role}</p><h3>{title}</h3><small>{body}</small></article>)}</div></div>
+        </section>
+
         <section className="section section-steps" id="how-it-works">
           <div className="page-shell"><SectionHeading eyebrow={copy.steps.eyebrow} title={copy.steps.title} align="center" /><ol className="steps-list">{copy.steps.items.map(([number, title, body]) => <li key={title}><span>{number}</span><h3>{title}</h3><p>{body}</p></li>)}</ol></div>
         </section>
 
-        <section className="section services-section" id="marketplace">
+        <section className="section services-section" id="services">
           <div className="page-shell"><SectionHeading eyebrow={copy.services.eyebrow} title={copy.services.title} body={copy.services.intro} /><div className="services-grid">{copy.services.items.slice(0, 6).map(([title, body], index) => <article className="service-card" key={title}><span className="service-symbol">{String(index + 1).padStart(2, "0")}</span><h3>{title}</h3><p>{body}</p><span className="service-arrow"><ArrowIcon /></span></article>)}</div></div>
         </section>
 
@@ -54,7 +66,7 @@ export default async function LocaleHome({ params }: LocaleHomeProps) {
           <div className="page-shell partner-simple"><div><p className="eyebrow">{copy.partner.eyebrow}</p><h2>{copy.partner.title}</h2><p>{copy.partner.body}</p><ul>{copy.partner.bullets.map((item) => <li key={item}><CheckIcon />{item}</li>)}</ul><Link className="button button-outline-light" href={`${home}/solutions/providers`}>{copy.partner.action}<ArrowIcon /></Link></div></div>
         </section>
 
-        <section className="section contact-section" id="contact"><div className="page-shell contact-grid"><div><p className="eyebrow">{copy.nav.contact}</p><h2>{copy.form.contactTitle}</h2><p>{copy.form.contactBody}</p><div className="contact-orbit" aria-hidden="true"><span /><span /><span /></div></div><div className="form-panel form-panel-light"><InquiryForm kind="contact" copy={copy.form} /></div></div></section>
+        <section className="section contact-section" id="contact"><div className="page-shell contact-grid"><div><p className="eyebrow">{copy.nav.contact}</p><h2>{copy.form.contactTitle}</h2><p>{copy.form.contactBody}</p><div className="contact-details"><p><span>Visit us</span><strong>{copy.footer.address}</strong></p><a href={`mailto:${copy.footer.email}`}><span>Email us</span><strong>{copy.footer.email}</strong></a><a href={`tel:${copy.footer.phone.replace(/\s/g, "")}`}><span>Call us</span><strong>{copy.footer.phone}</strong></a></div><div className="social-links">{copy.footer.socials.map(([label, href]) => <a key={label} href={href} target="_blank" rel="noreferrer" aria-label={label}><SocialIcon name={label as "Instagram" | "Facebook"} /><span className="sr-only">{label}</span></a>)}<span className="social-link-disabled" aria-label="LinkedIn coming soon"><SocialIcon name="LinkedIn" /><span className="sr-only">LinkedIn coming soon</span></span><span className="social-link-disabled" aria-label="X coming soon"><SocialIcon name="X" /><span className="sr-only">X coming soon</span></span></div><div className="contact-orbit" aria-hidden="true"><span /><span /><span /></div></div><div className="form-panel form-panel-light"><h3>{copy.form.contactTitle}</h3><p>{copy.form.contactBody}</p><InquiryForm kind="contact" copy={copy.form} /></div></div></section>
       </main>
       <Footer locale={locale} copy={copy.footer} nav={copy.nav} />
       <a className="whatsapp-button" href={whatsappHref} target="_blank" rel="noreferrer" aria-label={copy.whatsapp}><WhatsAppIcon /><span>{copy.whatsapp}</span></a>

@@ -1,6 +1,9 @@
-import Link from "next/link";
+"use client";
 
-import { localeLabels, locales, type Locale } from "@/lib/i18n/config";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+
+import { locales, type Locale } from "@/lib/i18n/config";
 
 type LocaleSwitcherProps = {
   locale: Locale;
@@ -8,6 +11,8 @@ type LocaleSwitcherProps = {
 };
 
 export function LocaleSwitcher({ locale, path = "" }: LocaleSwitcherProps) {
+  const router = useRouter();
+
   return (
     <nav aria-label="Language">
       <ul className="flex items-center gap-1 rounded-full border border-[var(--line)] bg-[var(--surface-mist)] p-1">
@@ -18,6 +23,7 @@ export function LocaleSwitcher({ locale, path = "" }: LocaleSwitcherProps) {
             <li key={targetLocale}>
               <Link
                 aria-current={isCurrent ? "page" : undefined}
+                aria-label={targetLocale === "en" ? "English" : "मराठी"}
                 className={
                   isCurrent
                     ? "block rounded-full bg-[var(--brand-sun)] px-3 py-1.5 text-sm font-bold text-[var(--brand-forest-strong)]"
@@ -25,8 +31,14 @@ export function LocaleSwitcher({ locale, path = "" }: LocaleSwitcherProps) {
                 }
                 href={"/" + targetLocale + path}
                 lang={targetLocale}
+                onClick={(event) => {
+                  event.preventDefault();
+                  const currentHash = window.location.hash;
+                  const basePath = path.split("#")[0];
+                  router.push(`/${targetLocale}${basePath}${currentHash}`);
+                }}
               >
-                {localeLabels[targetLocale]}
+                {targetLocale === "en" ? "EN" : "मर"}
               </Link>
             </li>
           );

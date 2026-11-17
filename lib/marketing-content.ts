@@ -1,7 +1,7 @@
 import type { Locale } from "@/lib/i18n/config";
 
 type MarketingCopy = {
-  nav: Record<"home" | "howItWorks" | "marketplace" | "solutions" | "forFarmers" | "forProviders" | "partner" | "contact", string>;
+  nav: Record<"home" | "howItWorks" | "about" | "solutions" | "forFarmers" | "forProviders" | "partner" | "contact", string>;
   hero: {
     eyebrow: string;
     title: string;
@@ -15,6 +15,16 @@ type MarketingCopy = {
   challenge: { eyebrow: string; title: string; body: string; cards: [string, string, string][] };
   promise: { eyebrow: string; title: string; body: string; points: string[] };
   steps: { eyebrow: string; title: string; items: [string, string, string][] };
+  about: {
+    eyebrow: string;
+    title: string;
+    body: string;
+    points: [string, string][];
+    vision: [string, string];
+    mission: [string, string];
+    values: [string, string][];
+    team: [string, string, string][];
+  };
   services: { eyebrow: string; title: string; intro: string; items: [string, string][] };
   solutions: {
     eyebrow: string;
@@ -41,6 +51,7 @@ type MarketingCopy = {
     village: string;
     audience: string;
     subject: string;
+    subjectOptions: string[];
     message: string;
     consent: string;
     submitRegistration: string;
@@ -50,7 +61,7 @@ type MarketingCopy = {
     error: string;
     audiences: [string, string][];
   };
-  footer: { summary: string; address: string; email: string; phone: string; explore: string; contact: string; legal: string; privacy: string; terms: string; copyright: string };
+  footer: { summary: string; address: string; email: string; phone: string; explore: string; contact: string; legal: string; privacy: string; terms: string; copyright: string; socials: [string, string][] };
   whatsapp: string;
 };
 
@@ -58,7 +69,7 @@ const english: MarketingCopy = {
   nav: {
     home: "Home",
     howItWorks: "How it works",
-    marketplace: "Marketplace",
+    about: "About",
     solutions: "Solutions",
     forFarmers: "For Farmers",
     forProviders: "For Providers",
@@ -72,7 +83,7 @@ const english: MarketingCopy = {
     description:
       "AGRI MBA WALA is building a friendly place to find useful farm knowledge, local services, and meaningful rural opportunities.",
     primaryCta: "Ask for support",
-    secondaryCta: "Explore marketplace",
+    secondaryCta: "Explore our work",
     note: "Digital guidance for India · local service access introduced in phases",
   },
   proof: ["Local-first guidance", "People-powered services", "Clearer farm decisions"],
@@ -101,6 +112,29 @@ const english: MarketingCopy = {
       ["01", "Share the need", "Tell us whether you need guidance, work, equipment, or a farm service."],
       ["02", "See relevant options", "Explore practical information and local categories that fit the task ahead."],
       ["03", "Take action together", "Confirm the next step and keep your own farm plan in control."],
+    ],
+  },
+  about: {
+    eyebrow: "About AGRI MBA WALA",
+    title: "Rooted in practical knowledge. Built for stronger rural connections.",
+    body: "We are creating a people-first agriculture network where farmers, workers, equipment owners, and service providers can find clearer information and more useful next steps.",
+    points: [
+      ["Listen first", "We learn from the everyday realities of farms and rural communities before designing a solution."],
+      ["Make it useful", "Every feature should help someone understand, decide, or connect with greater confidence."],
+      ["Grow responsibly", "We are building step by step, with transparent information and respect for every person’s time and trust."],
+    ],
+    vision: ["Our vision", "A rural ecosystem where every farmer can access trusted knowledge, dependable services, and fair opportunity."],
+    mission: ["Our mission", "To connect agricultural communities through practical information, thoughtful technology, and local relationships that create real value."],
+    values: [
+      ["People first", "We design around the realities, dignity, and aspirations of the people we serve."],
+      ["Clarity over complexity", "We make information easier to understand and action easier to take."],
+      ["Trust through action", "We earn confidence through honest communication, responsible delivery, and consistent follow-through."],
+      ["Local strength", "We believe lasting progress grows from capable local people and communities."],
+    ],
+    team: [
+      ["The field team", "Community insight", "Listening to farmers and local partners so every decision stays grounded in real needs."],
+      ["The product team", "Simple technology", "Turning complex information into calm, useful digital experiences."],
+      ["The partner team", "Rural connections", "Building transparent relationships with service providers and agricultural communities."],
     ],
   },
   services: {
@@ -197,6 +231,7 @@ const english: MarketingCopy = {
     village: "Village / town",
     audience: "I am a…",
     subject: "What can we help with?",
+    subjectOptions: ["General Inquiry", "Technical Inquiry", "Partnership Inquiry"],
     message: "Message",
     consent: "I agree that AGRI MBA WALA may use my details to respond to this request.",
     submitRegistration: "Send my interest",
@@ -208,7 +243,7 @@ const english: MarketingCopy = {
   },
   footer: {
     summary: "Practical knowledge and stronger local connections for the people behind every harvest.",
-    address: "India · Digital-first agriculture support",
+    address: "Pune, Maharashtra · India",
     email: "agrimbawala@gmail.com",
     phone: "+91 91721 15522",
     explore: "Explore",
@@ -217,20 +252,21 @@ const english: MarketingCopy = {
     privacy: "Privacy-first contact handling",
     terms: "Clear service terms before confirmation",
     copyright: "AGRI MBA WALA. Built for stronger farm communities.",
+    socials: [["Instagram", "https://www.instagram.com/agri__mba_vala1799?xtok=MW9idjJiNXN3YmtmYw=="], ["Facebook", "https://www.facebook.com/share/1CZxMgkARf/"]],
   },
   whatsapp: "Chat on WhatsApp",
 };
 
 const marathi: MarketingCopy = {
   ...english,
-  nav: { home: "मुख्यपृष्ठ", howItWorks: "कसे काम करते", marketplace: "मार्केटप्लेस", solutions: "उपाय", forFarmers: "शेतकऱ्यांसाठी", forProviders: "सेवा पुरवठादारांसाठी", partner: "भागीदार व्हा", contact: "संपर्क" },
+  nav: { home: "मुख्यपृष्ठ", howItWorks: "कसे काम करते", about: "आमच्याबद्दल", solutions: "उपाय", forFarmers: "शेतकऱ्यांसाठी", forProviders: "सेवा पुरवठादारांसाठी", partner: "भागीदार व्हा", contact: "संपर्क" },
   hero: {
     eyebrow: "दैनंदिन शेतीसाठी उपयुक्त विचार",
     title: "सक्षम ग्रामीण जाळ्याची सुरुवात होते",
     emphasis: "योग्य पुढच्या पावलाने.",
     description: "AGRI MBA WALA उपयुक्त शेती ज्ञान, स्थानिक सेवा आणि ग्रामीण संधी एकमेकांच्या जवळ आणण्याचा प्रयत्न करतो.",
     primaryCta: "मदतीसाठी विचारा",
-    secondaryCta: "मार्केटप्लेस पहा",
+    secondaryCta: "आमचे काम जाणून घ्या",
     note: "भारतातील डिजिटल मार्गदर्शन · स्थानिक सेवा टप्प्याटप्प्याने सुरू",
   },
   proof: ["स्थानिक मार्गदर्शन", "लोककेंद्रित सेवा", "स्पष्ट शेती निर्णय"],
@@ -251,6 +287,30 @@ const marathi: MarketingCopy = {
     title: "गरजेपासून पुढच्या पावलापर्यंत तीन टप्पे.",
     items: [["०१", "गरज सांगा", "मार्गदर्शन, काम, यंत्र किंवा सेवांची गरज निवडा."], ["०२", "योग्य पर्याय पहा", "कामाशी जुळणारी माहिती आणि स्थानिक वर्ग शोधा."], ["०३", "एकत्र कृती करा", "पुढचा टप्पा ठरवा आणि आपले नियोजन स्वतःच्या हाती ठेवा."]],
   },
+  about: {
+    ...english.about,
+    eyebrow: "AGRI MBA WALA बद्दल",
+    title: "व्यावहारिक ज्ञानावर आधारलेले, मजबूत ग्रामीण जोडणीसाठी तयार.",
+    body: "शेतकरी, कामगार, यंत्रमालक आणि सेवा पुरवठादारांना स्पष्ट माहिती आणि योग्य पुढचे पाऊल मिळावे यासाठी आम्ही लोककेंद्रित कृषी नेटवर्क तयार करत आहोत.",
+    points: [
+      ["आधी ऐका", "शेती आणि ग्रामीण समुदायांच्या दैनंदिन वास्तवातून शिकून उपाय तयार करतो."],
+      ["उपयुक्त बनवा", "प्रत्येक सुविधा समजून घेणे, निर्णय घेणे किंवा जोडले जाणे सोपे करणारी असावी."],
+      ["जबाबदारीने वाढा", "पारदर्शक माहिती आणि प्रत्येकाच्या वेळेचा व विश्वासाचा आदर ठेवून टप्प्याटप्प्याने पुढे जातो."],
+    ],
+    vision: ["आमचे ध्येय", "प्रत्येक शेतकऱ्याला विश्वासार्ह ज्ञान, उपयुक्त सेवा आणि योग्य संधी सहज उपलब्ध असलेली ग्रामीण व्यवस्था."],
+    mission: ["आमचे कार्य", "व्यावहारिक माहिती, योग्य तंत्रज्ञान आणि स्थानिक नात्यांच्या मदतीने कृषी समुदायांना जोडणे."],
+    values: [
+      ["लोक प्रथम", "ज्यांच्यासाठी काम करतो त्यांच्या वास्तवाचा, सन्मानाचा आणि आकांक्षांचा विचार करतो."],
+      ["सोपेपणा", "माहिती समजणे आणि पुढचे पाऊल घेणे सोपे करतो."],
+      ["कृतीतून विश्वास", "प्रामाणिक संवाद आणि जबाबदार कामातून विश्वास मिळवतो."],
+      ["स्थानिक बळ", "शाश्वत प्रगती स्थानिक लोक आणि समुदायांमधून घडते."],
+    ],
+    team: [
+      ["फील्ड टीम", "समुदाय समज", "शेतकरी आणि स्थानिक भागीदारांचे ऐकून खऱ्या गरजांवर लक्ष केंद्रित करते."],
+      ["उत्पादन टीम", "सोपे तंत्रज्ञान", "गुंतागुंतीची माहिती उपयुक्त डिजिटल अनुभवात रूपांतरित करते."],
+      ["भागीदार टीम", "ग्रामीण जोडणी", "सेवा पुरवठादार आणि कृषी समुदायांमध्ये पारदर्शक नाती तयार करते."],
+    ],
+  },
   services: { ...english.services, eyebrow: "एक शेती प्रवास", title: "पिकापूर्वी, पिकादरम्यान आणि नंतरच्या कामांसाठी मदत.", intro: "सेवेची उपलब्धता आणि पात्रता भागानुसार प्रकाशित केली जाईल." },
   solutions: { eyebrow: "तुमचा मार्ग निवडा", title: "शेतीला सक्षम करणाऱ्या लोकांसाठी सोपी मदत.", body: "तुमच्या भूमिकेशी जुळणारे पान निवडा. योग्य पुढच्या टप्प्यासाठी आम्ही मार्गदर्शन करू.", farmers: { title: "शेतकऱ्यांसाठी", body: "उपयुक्त मार्गदर्शन मिळवा आणि तुमच्या शेतीच्या गरजेसाठी मदत विचारा.", action: "शेतकरी उपाय पहा" }, providers: { title: "सेवा पुरवठादारांसाठी", body: "तुमचे यंत्र, कौशल्य किंवा ग्रामीण सेवा शेतकरी समुदायापर्यंत पोहोचवा.", action: "सेवा पुरवठादार उपाय पहा" } },
   people: { ...english.people, eyebrow: "लोकांभोवती रचना", title: "प्रत्येक चांगल्या हंगामामागे एकापेक्षा अधिक तज्ज्ञ असतात.", body: "ग्रामीण अर्थव्यवस्थेतील प्रत्येक भूमिकेचा सन्मान ठेवून योग्य जोडणी सुलभ करणे हे उद्दिष्ट आहे." },
@@ -259,8 +319,8 @@ const marathi: MarketingCopy = {
   partner: { ...english.partner, eyebrow: "स्थानिक तज्ज्ञांसाठी", title: "तुमची उपयुक्त सेवा गरजू शेतापर्यंत पोहोचवा.", body: "तुम्ही ग्रामीण सेवा देत असाल तर तुमच्या कामाविषयी सांगा. पारदर्शक भागीदार प्रक्रिया तयार होत आहे.", action: "भागीदार म्हणून नोंदणी करा" },
   stories: { ...english.stories, eyebrow: "संमतीसह कथा", title: "विश्वास उधार घेतलेल्या दाव्यांनी नव्हे, तपशीलांनी निर्माण होतो.", body: "समुदाय सदस्यांनी सामायिक करण्याची निवड केल्यानंतर येथे पडताळलेले अनुभव जोडले जातील." },
   faq: { ...english.faq, eyebrow: "सुरुवातीपूर्वी", title: "सेवा प्रत्यक्ष सुरू होताच स्पष्ट उत्तरे प्रकाशित केली जातील." },
-  form: { ...english.form, registrationTitle: "तुम्ही कसे जोडले जाऊ इच्छिता ते सांगा.", registrationBody: "तुमचे तपशील शेअर करा. तुमच्या भागात पडताळलेली सेवा सुरू झाल्यावर आम्ही संपर्क करू.", contactTitle: "उपयुक्त संवाद सुरू करा.", contactBody: "प्रश्न, भागीदारी किंवा क्षेत्र विनंतीसाठी AGRI MBA WALA टीमला संदेश पाठवा.", name: "पूर्ण नाव", phone: "फोन क्रमांक", email: "ईमेल पत्ता", district: "जिल्हा", village: "गाव / शहर", audience: "मी आहे…", subject: "आम्ही कशी मदत करू?", message: "संदेश", consent: "या विनंतीला उत्तर देण्यासाठी AGRI MBA WALA माझे तपशील वापरू शकते यास मी सहमती देतो/देते.", submitRegistration: "माझी माहिती पाठवा", submitContact: "चौकशी पाठवा", sending: "पाठवत आहे…", success: "धन्यवाद — तुमची चौकशी मिळाली आहे. शेअर केलेल्या तपशीलांवर आम्ही संपर्क करू.", error: "सध्या पाठवता आले नाही. ठळक केलेली माहिती तपासून पुन्हा प्रयत्न करा.", audiences: [["farmer", "शेतकरी"], ["labour", "शेतमजूर"], ["tractor-owner", "ट्रॅक्टर मालक"], ["service-provider", "सेवा पुरवठादार"]] },
-  footer: { ...english.footer, summary: "प्रत्येक हंगामामागील लोकांसाठी उपयुक्त ज्ञान आणि मजबूत स्थानिक जोडणी.", explore: "माहिती", contact: "संपर्क", legal: "कायदेशीर", copyright: "AGRI MBA WALA. सक्षम शेती समुदायांसाठी." },
+  form: { ...english.form, registrationTitle: "तुम्ही कसे जोडले जाऊ इच्छिता ते सांगा.", registrationBody: "तुमचे तपशील शेअर करा. तुमच्या भागात पडताळलेली सेवा सुरू झाल्यावर आम्ही संपर्क करू.", contactTitle: "उपयुक्त संवाद सुरू करा.", contactBody: "प्रश्न, भागीदारी किंवा क्षेत्र विनंतीसाठी AGRI MBA WALA टीमला संदेश पाठवा.", name: "पूर्ण नाव", phone: "फोन क्रमांक", email: "ईमेल पत्ता", district: "जिल्हा", village: "गाव / शहर", audience: "मी आहे…", subject: "विषय निवडा", subjectOptions: ["सामान्य चौकशी", "तांत्रिक चौकशी", "भागीदारी चौकशी"], message: "संदेश", consent: "या विनंतीला उत्तर देण्यासाठी AGRI MBA WALA माझे तपशील वापरू शकते यास मी सहमती देतो/देते.", submitRegistration: "माझी माहिती पाठवा", submitContact: "चौकशी पाठवा", sending: "पाठवत आहे…", success: "धन्यवाद — तुमची चौकशी मिळाली आहे. शेअर केलेल्या तपशीलांवर आम्ही संपर्क करू.", error: "सध्या पाठवता आले नाही. ठळक केलेली माहिती तपासून पुन्हा प्रयत्न करा.", audiences: [["farmer", "शेतकरी"], ["labour", "शेतमजूर"], ["tractor-owner", "ट्रॅक्टर मालक"], ["service-provider", "सेवा पुरवठादार"]] },
+  footer: { ...english.footer, summary: "प्रत्येक हंगामामागील लोकांसाठी उपयुक्त ज्ञान आणि मजबूत स्थानिक जोडणी.", address: "पुणे, महाराष्ट्र · भारत", explore: "माहिती", contact: "संपर्क", legal: "कायदेशीर", copyright: "AGRI MBA WALA. सक्षम शेती समुदायांसाठी." },
   whatsapp: "WhatsApp वर बोला",
 };
 

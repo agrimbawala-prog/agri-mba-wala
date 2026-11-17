@@ -77,7 +77,7 @@ export function InquiryForm({ kind, copy }: InquiryFormProps) {
         {kind === "registration" ? (
           <FormField label={copy.audience} error={fieldError("audience")} htmlFor={fieldId("audience")}><select id={fieldId("audience")} name="audience" defaultValue="" required><option value="" disabled>—</option>{copy.audiences.map(([value, label]) => <option key={value} value={value}>{label}</option>)}</select></FormField>
         ) : (
-          <FormField label={copy.subject} error={fieldError("subject")} htmlFor={fieldId("subject")}><input id={fieldId("subject")} name="subject" required /></FormField>
+          <fieldset className="subject-field"><legend>{copy.subject}</legend>{copy.subjectOptions.map((option) => <label key={option}><input name="subject" type="radio" value={option} required /><span>{option}</span></label>)}{fieldError("subject") ? <small className="field-error">{fieldError("subject")}</small> : null}</fieldset>
         )}
         <FormField label={copy.district} error={fieldError("district")} htmlFor={fieldId("district")}><input id={fieldId("district")} name="district" autoComplete="address-level1" /></FormField>
         <FormField label={copy.village} error={fieldError("village")} htmlFor={fieldId("village")}><input id={fieldId("village")} name="village" autoComplete="address-level2" /></FormField>

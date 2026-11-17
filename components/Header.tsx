@@ -40,7 +40,7 @@ export function Header({ locale, copy, path = "" }: HeaderProps) {
   const links = [
     [home, copy.home],
     [`${home}#how-it-works`, copy.howItWorks],
-    [`${home}#marketplace`, copy.marketplace],
+    [`${home}#about`, copy.about],
     [`${home}#partner`, copy.partner],
     [`${home}#contact`, copy.contact],
   ];
@@ -61,7 +61,7 @@ export function Header({ locale, copy, path = "" }: HeaderProps) {
           <SolutionsMenu key={`desktop-${pathname}`} locale={locale} copy={copy} isActive={isSolutionsPage} />
           {links.slice(3).map(([href, label]) => <Link key={href} href={href} className={isLinkActive(href) ? "active-nav-link" : undefined} aria-current={isLinkActive(href) ? "page" : undefined}>{label}</Link>)}
         </nav>
-        <div className="header-actions"><LocaleSwitcher locale={locale} path={path} /><button className="menu-button" aria-expanded={isOpen} aria-controls="mobile-menu" onClick={() => setIsOpen((current) => !current)}><span className="sr-only">{isOpen ? "Close navigation" : "Open navigation"}</span>{isOpen ? <CloseIcon /> : <MenuIcon />}</button></div>
+        <div className="header-actions"><LocaleSwitcher locale={locale} path={`${path}${hash}`} /><button className="menu-button" aria-expanded={isOpen} aria-controls="mobile-menu" onClick={() => setIsOpen((current) => !current)}><span className="sr-only">{isOpen ? "Close navigation" : "Open navigation"}</span>{isOpen ? <CloseIcon /> : <MenuIcon />}</button></div>
       </div>
       <div id="mobile-menu" className={isOpen ? "mobile-menu mobile-menu-open" : "mobile-menu"} aria-hidden={!isOpen}>
         <nav aria-label="Mobile navigation">
