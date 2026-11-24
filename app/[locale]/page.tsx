@@ -29,13 +29,15 @@ export default async function LocaleHome({ params }: LocaleHomeProps) {
       body: isMr ? "पानाचा फोटो काढा, ३ सेकंदांत अचूक रोग निदान व मराठीत व्हॉईस उपाय ऐका." : "Upload diseased leaf photo for 3-sec instant diagnosis & audio advisory.",
       badge: isMr ? "३ सेकंद निदान" : "Instant AI",
       icon: "🌿",
+      comingSoon: true,
     },
     {
       href: `${home}/machinery`,
-      title: isMr ? "अवजारे व ड्रोन रेंटल (Uber Model)" : "Machinery & Drone Rental",
-      body: isMr ? "गावातील ट्रॅक्टर, रोटाव्हेटर, पेरणी यंत्र, कृषी ड्रोन व इलेक्ट्रिक अवजारे थेट बुक करा." : "Verified tractors, seed drills, sprayers, and drones on hourly/acre rent.",
+      title: isMr ? "अवजारे ट्रेनिंग व रेंटल" : "Machinery Training & Rental",
+      body: isMr ? "कृषी अवजारे वापरण्याचे प्रशिक्षण आणि ट्रॅक्टर, रोटाव्हेटर व उपकरणे तास/एकराने मिळवा." : "Machinery operation training and verified tractors, implements, and equipment on hourly/acre rent.",
       badge: isMr ? "शेअरिंग इकॉनॉमी" : "Live Booking",
       icon: "🚜",
+      comingSoon: false,
     },
     {
       href: `${home}/labor`,
@@ -43,13 +45,15 @@ export default async function LocaleHome({ params }: LocaleHomeProps) {
       body: isMr ? "पेरणी, फळबाग छाटणी, फवारणी व काढणीसाठी अनुभवी मजूर गट व मुकादम थेट मिळवा." : "Direct connection with skilled pruning, weeding, and harvesting crews.",
       badge: isMr ? "हंगामात उपलब्धता" : "Verified Crews",
       icon: "👥",
+      comingSoon: false,
     },
     {
       href: `${home}/mandi`,
-      title: isMr ? "APMC बाजारभाव व AI अंदाज" : "Live Mandi Rates & AI Forecast",
+      title: isMr ? "APMC बाजारभाव व AI किंमत अंदाज" : "Live Mandi Rates & AI Price Forecast",
       body: isMr ? "महाराष्ट्रातील प्रमुख बाजार समित्यांचे आजचे दर व पुढील भाववाढीचा AI अंदाज." : "Daily commodity prices across Maharashtra APMCs with AI trend predictions.",
       badge: isMr ? "थेट बाजारभाव" : "Live Prices",
       icon: "📈",
+      comingSoon: true,
     },
     {
       href: `${home}/weather`,
@@ -57,13 +61,7 @@ export default async function LocaleHome({ params }: LocaleHomeProps) {
       body: isMr ? "५ दिवसांचा स्थानिक हवामान अंदाज व फवारणीसाठी योग्य अनुकूल वेळेचा इशारा." : "5-day hyper-local weather forecast and smart spray window alerts.",
       badge: isMr ? "फवारणी सल्ला" : "Smart Alerts",
       icon: "🌦️",
-    },
-    {
-      href: `${home}/training`,
-      title: isMr ? "ड्रोन व अवजारे ट्रेनिंग (DGCA)" : "Certified Operator Training",
-      body: isMr ? "३ दिवसांचा (२४ तास) प्रात्यक्षिक अभ्यासक्रम, ऑपरेटर प्रमाणपत्र व रेंटल व्यवसाय संधी." : "3-day practical drone flight, electric tools & smart sensor certification.",
-      badge: isMr ? "प्रमाणपत्र अभ्यासक्रम" : "DGCA Aligned",
-      icon: "🎓",
+      comingSoon: true,
     },
     {
       href: `${home}/organic`,
@@ -71,6 +69,7 @@ export default async function LocaleHome({ params }: LocaleHomeProps) {
       body: isMr ? "जीवामृत, दशपर्णी अर्क बनवण्याची कृती, खर्च ७०% कमी आणि सेंद्रिय प्रमाणीकरण." : "Cut input costs by 70%. Natural bio-input recipes & NPOP certification.",
       badge: isMr ? "नैसर्गिक शेती" : "Zero Chemical",
       icon: "🍃",
+      comingSoon: false,
     },
     {
       href: `${home}/partner-mou`,
@@ -78,6 +77,7 @@ export default async function LocaleHome({ params }: LocaleHomeProps) {
       body: isMr ? "गावातील कृषी केंद्राला 'किसान साथी केंद्र' बनवा. प्रत्येक बुकिंगवर ५०% कमिशन वाटा." : "Phygital center partnership. Earn 50% platform commission share.",
       badge: isMr ? "५०% कमिशन वाटा" : "Phygital Model",
       icon: "🏢",
+      comingSoon: false,
     },
   ];
 
@@ -120,7 +120,7 @@ export default async function LocaleHome({ params }: LocaleHomeProps) {
           </div>
         </section>
 
-        {/* 8 CORE SERVICES SECTION (FROM PRD & BLUEPRINT) */}
+        {/* CORE SERVICES SECTION (FROM PRD & BLUEPRINT) */}
         <section className="section services-section" id="services" style={{ background: "#ffffff" }}>
           <div className="page-shell">
             <div style={{ maxWidth: "46rem", margin: "0 auto 3rem", textAlign: "center" }}>
@@ -139,9 +139,8 @@ export default async function LocaleHome({ params }: LocaleHomeProps) {
 
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(16.5rem, 1fr))", gap: "1.2rem" }}>
               {coreServices.map((service, index) => (
-                <Link
+                <div
                   key={service.href}
-                  href={service.href}
                   style={{
                     display: "flex",
                     flexDirection: "column",
@@ -159,7 +158,7 @@ export default async function LocaleHome({ params }: LocaleHomeProps) {
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.8rem" }}>
                       <span style={{ fontSize: "1.8rem" }}>{service.icon}</span>
                       <span style={{ background: "#e8f4e7", color: "var(--brand-forest)", padding: "0.2rem 0.5rem", borderRadius: "0.4rem", fontSize: "0.7rem", fontWeight: 800 }}>
-                        {service.badge}
+                        {service.comingSoon ? (isMr ? "लवकरच" : "Coming Soon") : service.badge}
                       </span>
                     </div>
                     <h3 style={{ fontSize: "1.15rem", color: "var(--brand-forest-strong)", margin: "0.4rem 0 0.5rem" }}>
@@ -171,10 +170,16 @@ export default async function LocaleHome({ params }: LocaleHomeProps) {
                   </div>
 
                   <div style={{ marginTop: "1.2rem", display: "flex", alignItems: "center", gap: "0.4rem", color: "var(--brand-leaf)", fontWeight: 700, fontSize: "0.85rem" }}>
-                    <span>{isMr ? "सुरू करा" : "Explore"}</span>
-                    <ArrowIcon className="service-explore-arrow" />
+                    {service.comingSoon ? (
+                      <span>{isMr ? "लवकरच उपलब्ध" : "Coming soon"}</span>
+                    ) : (
+                      <Link href={service.href} className="service-explore-link">
+                        <span>{isMr ? "सुरू करा" : "Explore"}</span>
+                        <ArrowIcon className="service-explore-arrow" />
+                      </Link>
+                    )}
                   </div>
-                </Link>
+                </div>
               ))}
             </div>
           </div>

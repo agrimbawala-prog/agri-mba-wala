@@ -113,9 +113,6 @@ export function Header({ locale, copy, path = "" }: HeaderProps) {
           <Link href={`/${locale}/partner-mou`} className={pathname === `/${locale}/partner-mou` ? "active-nav-link" : undefined}>
             {locale === "mr" ? "कृषी केंद्र MoU" : "Partner MoU"}
           </Link>
-          <Link href="/admin" className={pathname.startsWith("/admin") ? "active-nav-link" : undefined} style={{ color: "var(--brand-earth)", fontWeight: 800 }}>
-            {locale === "mr" ? "अ‍ॅडमिन" : "Admin"}
-          </Link>
         </nav>
         <div className="header-actions">
           <LocaleSwitcher locale={locale} path={`${path}${hash}`} />
@@ -160,13 +157,12 @@ function ServicesMenu({ locale, isActive, onNavigate }: { locale: Locale; isActi
   };
 
   const services = [
-    { href: `/${locale}/crop-doctor`, icon: "🌿", title: isMr ? "AI पीक डॉक्टर व व्हॉईस" : "AI Crop Doctor & Voice", sub: isMr ? "फोटो काढून ३ सेकंदांत रोग निदान" : "3-second multimodal disease scan" },
-    { href: `/${locale}/machinery`, icon: "🚜", title: isMr ? "अवजारे व ड्रोन रेंटल" : "Machinery & Drone Rental", sub: isMr ? "ट्रॅक्टर, रोटाव्हेटर, ड्रोन थेट बुकिंग" : "Hourly & per-acre equipment booking" },
-    { href: `/${locale}/labor`, icon: "👥", title: isMr ? "शेतमजूर गट (टोळी)" : "Farm Labor Groups", sub: isMr ? "पेरणी, छाटणी व काढणीसाठी मजूर" : "Skilled planting & harvesting crews" },
-    { href: `/${locale}/mandi`, icon: "📈", title: isMr ? "बाजारभाव व AI अंदाज" : "Live Mandi Rates", sub: isMr ? "APMC बाजार समित्यांचे आजचे दर" : "Daily APMC commodity prices" },
-    { href: `/${locale}/weather`, icon: "🌦️", title: isMr ? "हवामान व फवारणी अलर्ट" : "Weather & Spray Advisory", sub: isMr ? "५ दिवसांचा अंदाज व अनुकूल वेळ" : "5-day forecast & smart spray window" },
-    { href: `/${locale}/training`, icon: "🎓", title: isMr ? "ड्रोन ट्रेनिंग व प्रमाणपत्र" : "Drone Training & Certification", sub: isMr ? "३ दिवसांचा अभ्यासक्रम व ऑपरेटर पदवी" : "Certified 3-day practical syllabus" },
-    { href: `/${locale}/organic`, icon: "🍃", title: isMr ? "सेंद्रिय शेती मार्गदर्शक" : "Organic Farming Guide", sub: isMr ? "जीवामृत, दशपर्णी अर्क व NPOP" : "Bio-inputs & certification process" },
+    { href: `/${locale}/crop-doctor`, icon: "🌿", title: isMr ? "AI पीक डॉक्टर व व्हॉईस" : "AI Crop Doctor & Voice", sub: isMr ? "लवकरच उपलब्ध" : "Coming soon", comingSoon: true },
+    { href: `/${locale}/machinery`, icon: "🚜", title: isMr ? "अवजारे ट्रेनिंग व रेंटल" : "Machinery Training & Rental", sub: isMr ? "अवजारे प्रशिक्षण व ट्रॅक्टर रेंटल" : "Machinery training and equipment rental", comingSoon: false },
+    { href: `/${locale}/labor`, icon: "👥", title: isMr ? "शेतमजूर गट (टोळी)" : "Farm Labor Groups", sub: isMr ? "पेरणी, छाटणी व काढणीसाठी मजूर" : "Skilled planting & harvesting crews", comingSoon: false },
+    { href: `/${locale}/mandi`, icon: "📈", title: isMr ? "बाजारभाव व AI किंमत अंदाज" : "Live Mandi Rates & AI Price Forecast", sub: isMr ? "लवकरच उपलब्ध" : "Coming soon", comingSoon: true },
+    { href: `/${locale}/weather`, icon: "🌦️", title: isMr ? "हवामान अंदाज व फवारणी सल्ला" : "Weather Forecast & Spray Advisory", sub: isMr ? "लवकरच उपलब्ध" : "Coming soon", comingSoon: true },
+    { href: `/${locale}/organic`, icon: "🍃", title: isMr ? "सेंद्रिय शेती मार्गदर्शक" : "Organic Farming Guide", sub: isMr ? "जीवामृत, दशपर्णी अर्क व NPOP" : "Bio-inputs & certification process", comingSoon: false },
   ];
 
   return (
@@ -190,9 +186,10 @@ function ServicesMenu({ locale, isActive, onNavigate }: { locale: Locale; isActi
         {services.map((item) => (
           <Link
             key={item.href}
-            href={item.href}
+            href={item.comingSoon ? "#coming-soon" : item.href}
+            aria-disabled={item.comingSoon || undefined}
+            onClick={item.comingSoon ? (event) => event.preventDefault() : closeMenu}
             className={pathname === item.href ? "active-solution-link" : undefined}
-            onClick={closeMenu}
           >
             <span className="solution-option-icon" style={{ fontSize: "1.1rem" }}>{item.icon}</span>
             <span>
