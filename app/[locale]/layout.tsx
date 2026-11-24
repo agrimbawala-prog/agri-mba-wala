@@ -57,9 +57,6 @@ export async function generateMetadata({
       title: dictionary.metadata.title,
       description: dictionary.metadata.description,
     },
-    icons: {
-      icon: "/icon.svg",
-    },
     alternates: {
       canonical: `/${locale}`,
       languages: { en: "/en", mr: "/mr" },

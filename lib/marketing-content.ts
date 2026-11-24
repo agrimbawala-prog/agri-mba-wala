@@ -133,7 +133,6 @@ const english: MarketingCopy = {
     ],
     team: [
       ["Datta Sabale", "Founder", "Guiding AGRI MBA WALA with a clear focus on practical rural impact."],
-      ["Rohit Thorat", "Tech Lead", "Building simple, reliable technology for stronger agricultural connections."],
     ],
   },
   services: {
@@ -306,7 +305,6 @@ const marathi: MarketingCopy = {
     ],
     team: [
       ["Datta Sabale", "संस्थापक", "व्यावहारिक ग्रामीण परिणामांवर लक्ष केंद्रित करून AGRI MBA WALA ला दिशा देतात."],
-      ["Rohit Thorat", "तंत्रज्ञान प्रमुख", "मजबूत कृषी जोडणीसाठी सोपे आणि विश्वासार्ह तंत्रज्ञान तयार करतात."],
     ],
   },
   services: { ...english.services, eyebrow: "एक शेती प्रवास", title: "पिकापूर्वी, पिकादरम्यान आणि नंतरच्या कामांसाठी मदत.", intro: "सेवेची उपलब्धता आणि पात्रता भागानुसार प्रकाशित केली जाईल." },

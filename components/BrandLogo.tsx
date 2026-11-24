@@ -8,11 +8,11 @@ type BrandLogoProps = {
 export function BrandLogo({ className, priority = false }: BrandLogoProps) {
   return (
     <Image
-      className={className}
-      src="/brand/agri-mba-wala-logo.svg"
+      className={`brand-logo-image ${className ?? ""}`}
+      src="/brand/logo.jpeg"
       alt="AGRI MBA WALA"
-      width={416}
-      height={96}
+      width={1024}
+      height={1024}
       priority={priority}
     />
   );

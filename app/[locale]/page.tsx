@@ -101,7 +101,7 @@ export default async function LocaleHome({ params }: LocaleHomeProps) {
               <div className="hero-actions">
                 <Link className="button button-solid" href={`${home}/crop-doctor`}>
                   🌿 {isMr ? "AI पीक डॉक्टर सुरू करा" : "Try AI Crop Doctor"}
-                  <ArrowIcon />
+                  <ArrowIcon className="service-explore-arrow" />
                 </Link>
                 <Link className="button button-outline" href={`${home}/machinery`}>
                   🚜 {isMr ? "अवजारे रेंटल शोधा" : "Browse Machinery"}
@@ -172,7 +172,7 @@ export default async function LocaleHome({ params }: LocaleHomeProps) {
 
                   <div style={{ marginTop: "1.2rem", display: "flex", alignItems: "center", gap: "0.4rem", color: "var(--brand-leaf)", fontWeight: 700, fontSize: "0.85rem" }}>
                     <span>{isMr ? "सुरू करा" : "Explore"}</span>
-                    <ArrowIcon />
+                    <ArrowIcon className="service-explore-arrow" />
                   </div>
                 </Link>
               ))}
