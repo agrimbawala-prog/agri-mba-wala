@@ -187,7 +187,7 @@ export function LaborClient({ locale, initialGroups }: Props) {
                 cursor: "pointer",
               }}
             >
-              👥 {isMr ? "उपलब्ध मजूर टोळी शोधा व बुक करा" : "Find Labor Crews"}
+              {isMr ? "उपलब्ध मजूर टोळी शोधा व बुक करा" : "Find Labor Crews"}
             </button>
             <button
               type="button"
@@ -203,7 +203,7 @@ export function LaborClient({ locale, initialGroups }: Props) {
                 cursor: "pointer",
               }}
             >
-              📋 {isMr ? "मजूर गट (मुकादम) नोंदणी (PRD १.२)" : "Mukadam Onboarding"}
+              {isMr ? "मजूर गट (मुकादम) नोंदणी" : "Mukadam Onboarding"}
             </button>
           </div>
         </div>
@@ -273,7 +273,7 @@ export function LaborClient({ locale, initialGroups }: Props) {
                   <div>
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "0.8rem" }}>
                       <span style={{ background: "#e8f4e6", color: "var(--brand-forest)", padding: "0.25rem 0.6rem", borderRadius: "0.4rem", fontSize: "0.75rem", fontWeight: 800 }}>
-                        👥 {group.totalWorkers} मजूर ({group.maleWorkers} पुरुष, {group.femaleWorkers} महिला)
+                        {group.totalWorkers} मजूर ({group.maleWorkers} पुरुष, {group.femaleWorkers} महिला)
                       </span>
                       <span style={{ color: "#25D366", fontSize: "0.85rem", fontWeight: 700 }}>
                         ● उपलब्ध
@@ -284,7 +284,7 @@ export function LaborClient({ locale, initialGroups }: Props) {
                       {group.leaderName} (मुकादम)
                     </h3>
                     <p style={{ margin: "0 0 0.8rem", color: "var(--ink-muted)", fontSize: "0.84rem" }}>
-                      📍 {group.village}, ता. {group.taluka}, जि. {group.district} (परिघ: {group.serviceRadiusKm} किमी)
+                      {group.village}, ता. {group.taluka}, जि. {group.district} (परिघ: {group.serviceRadiusKm} किमी)
                     </p>
 
                     {/* Skill tags */}

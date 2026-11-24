@@ -22,7 +22,6 @@ export function Footer({ locale, copy, nav }: FooterProps) {
         <div>
           <h2>{copy.explore}</h2>
           <Link href={`/${locale}`}>{nav.home}</Link>
-          <Link href={`/${locale}#how-it-works`}>{nav.howItWorks}</Link>
           <Link href={`/${locale}#about`}>{nav.about}</Link>
           <Link href={`/${locale}/solutions/farmers`}>{nav.forFarmers}</Link>
           <Link href={`/${locale}/solutions/providers`}>{nav.forProviders}</Link>
@@ -32,7 +31,11 @@ export function Footer({ locale, copy, nav }: FooterProps) {
           <p>{copy.address}</p>
           <a href={`mailto:${copy.email}`}>{copy.email}</a>
           <a href={`tel:${copy.phone.replace(/\s/g, "")}`}>{copy.phone}</a>
-          <div className="footer-socials">{copy.socials.map(([label, href]) => <a key={label} href={href} target="_blank" rel="noreferrer" aria-label={label}><SocialIcon name={label as "Instagram" | "Facebook"} /><span className="sr-only">{label}</span></a>)}<span aria-label="LinkedIn coming soon"><SocialIcon name="LinkedIn" /><span className="sr-only">LinkedIn coming soon</span></span><span aria-label="X coming soon"><SocialIcon name="X" /><span className="sr-only">X coming soon</span></span></div>
+          <div className="footer-socials">
+            {copy.socials.map(([label, href]) => (
+              <a key={label} href={href} target="_blank" rel="noreferrer" aria-label={label}><SocialIcon name={label as "Instagram" | "Facebook"} /></a>
+            ))}
+          </div>
         </div>
         <div>
           <h2>{copy.legal}</h2>

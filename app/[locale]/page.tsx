@@ -1,12 +1,20 @@
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
+import {
+  ArrowRight,
+  Check,
+  Handshake,
+  Mail,
+  MapPin,
+  MessageCircle,
+  Phone,
+  Sprout,
+} from "lucide-react";
 
-import { FieldScene } from "@/components/FieldScene";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { InquiryForm } from "@/components/InquiryForm";
-import { ArrowIcon, CheckIcon, SocialIcon, WhatsAppIcon } from "@/components/SiteIcons";
-import { SectionHeading } from "@/components/SectionHeading";
 import { hasLocale } from "@/lib/i18n/config";
 import { getMarketingCopy } from "@/lib/marketing-content";
 
@@ -20,241 +28,189 @@ export default async function LocaleHome({ params }: LocaleHomeProps) {
   const copy = getMarketingCopy(locale);
   const home = `/${locale}`;
   const whatsappNumber = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "919172115522").replace(/\D/g, "");
-  const whatsappHref = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent("नमस्कार AI किसान साथी (AGRI MBA वाला), मला शेती सेवा व मार्गदर्शनाबद्दल माहिती हवी आहे.")}`;
+  const whatsappHref = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hello AGRI MBA WALA, I need farm service support.")}`;
 
-  const coreServices = [
-    {
-      href: `${home}/crop-doctor`,
-      title: isMr ? "AI पीक डॉक्टर व व्हॉईस" : "AI Crop Doctor & Voice",
-      body: isMr ? "पानाचा फोटो काढा, ३ सेकंदांत अचूक रोग निदान व मराठीत व्हॉईस उपाय ऐका." : "Upload diseased leaf photo for 3-sec instant diagnosis & audio advisory.",
-      badge: isMr ? "३ सेकंद निदान" : "Instant AI",
-      icon: "🌿",
-      comingSoon: true,
-    },
-    {
-      href: `${home}/machinery`,
-      title: isMr ? "अवजारे ट्रेनिंग व रेंटल" : "Machinery Training & Rental",
-      body: isMr ? "कृषी अवजारे वापरण्याचे प्रशिक्षण आणि ट्रॅक्टर, रोटाव्हेटर व उपकरणे तास/एकराने मिळवा." : "Machinery operation training and verified tractors, implements, and equipment on hourly/acre rent.",
-      badge: isMr ? "शेअरिंग इकॉनॉमी" : "Live Booking",
-      icon: "🚜",
-      comingSoon: false,
-    },
-    {
-      href: `${home}/labor`,
-      title: isMr ? "शेतमजूर गट (टोळी) बुकिंग" : "Farm Labor Group Booking",
-      body: isMr ? "पेरणी, फळबाग छाटणी, फवारणी व काढणीसाठी अनुभवी मजूर गट व मुकादम थेट मिळवा." : "Direct connection with skilled pruning, weeding, and harvesting crews.",
-      badge: isMr ? "हंगामात उपलब्धता" : "Verified Crews",
-      icon: "👥",
-      comingSoon: false,
-    },
-    {
-      href: `${home}/mandi`,
-      title: isMr ? "APMC बाजारभाव व AI किंमत अंदाज" : "Live Mandi Rates & AI Price Forecast",
-      body: isMr ? "महाराष्ट्रातील प्रमुख बाजार समित्यांचे आजचे दर व पुढील भाववाढीचा AI अंदाज." : "Daily commodity prices across Maharashtra APMCs with AI trend predictions.",
-      badge: isMr ? "थेट बाजारभाव" : "Live Prices",
-      icon: "📈",
-      comingSoon: true,
-    },
-    {
-      href: `${home}/weather`,
-      title: isMr ? "हवामान व फवारणी अलर्ट" : "Weather & Spray Advisory",
-      body: isMr ? "५ दिवसांचा स्थानिक हवामान अंदाज व फवारणीसाठी योग्य अनुकूल वेळेचा इशारा." : "5-day hyper-local weather forecast and smart spray window alerts.",
-      badge: isMr ? "फवारणी सल्ला" : "Smart Alerts",
-      icon: "🌦️",
-      comingSoon: true,
-    },
-    {
-      href: `${home}/organic`,
-      title: isMr ? "सेंद्रिय शेती व जीवामृत" : "Organic Farming Guide",
-      body: isMr ? "जीवामृत, दशपर्णी अर्क बनवण्याची कृती, खर्च ७०% कमी आणि सेंद्रिय प्रमाणीकरण." : "Cut input costs by 70%. Natural bio-input recipes & NPOP certification.",
-      badge: isMr ? "नैसर्गिक शेती" : "Zero Chemical",
-      icon: "🍃",
-      comingSoon: false,
-    },
-    {
-      href: `${home}/partner-mou`,
-      title: isMr ? "कृषी सेवा केंद्र भागीदारी (MoU)" : "Krishi Seva Kendra MoU",
-      body: isMr ? "गावातील कृषी केंद्राला 'किसान साथी केंद्र' बनवा. प्रत्येक बुकिंगवर ५०% कमिशन वाटा." : "Phygital center partnership. Earn 50% platform commission share.",
-      badge: isMr ? "५०% कमिशन वाटा" : "Phygital Model",
-      icon: "🏢",
-      comingSoon: false,
-    },
+  const services = [
+    { href: `${home}/machinery`, title: isMr ? "अवजारे ट्रेनिंग व रेंटल" : "Machinery Training & Rental", body: isMr ? "अवजारे बुक करा किंवा प्रशिक्षण घ्या" : "Train or rent farm equipment", image: "/service-card-images/Machinery Training & Rental.png", live: true },
+    { href: `${home}/labor`, title: isMr ? "शेतमजूर गट" : "Farm Labor Groups", body: isMr ? "निवड व बुकिंग" : "Find and book crews", image: "/service-card-images/Farm Labor Groups.png", live: true },
+    { href: `${home}/organic`, title: isMr ? "सेंद्रिय शेती मार्गदर्शक" : "Organic Farming Guide", body: isMr ? "जीवामृत आणि सेंद्रिय पद्धती" : "Natural inputs and methods", image: "/service-card-images/Organic Farming Guide.png", live: true },
+    { href: `${home}/partner-mou`, title: isMr ? "कृषी केंद्र भागीदारी" : "Krishi Kendra MoU", body: isMr ? "सेवा केंद्रांसाठी नोंदणी" : "Partner centre registration", image: "/service-card-images/Krishi Kendra MoU.png", live: true },
+    { href: `${home}/crop-doctor`, title: isMr ? "AI पीक डॉक्टर" : "AI Crop Doctor", body: isMr ? "लवकरच उपलब्ध" : "Coming soon", image: "/service-card-images/AI Crop Doctor.png", live: false },
+    { href: `${home}/mandi`, title: isMr ? "मंडी भाव व अंदाज" : "Mandi Rates & Forecast", body: isMr ? "लवकरच उपलब्ध" : "Coming soon", image: "/service-card-images/Mandi Rates & Forecast.png", live: false },
+    { href: `${home}/weather`, title: isMr ? "हवामान व फवारणी" : "Weather & Spray Advisory", body: isMr ? "लवकरच उपलब्ध" : "Coming soon", image: "/service-card-images/Weather & Spray Advisory.png", live: false },
+  ];
+
+  const steps = [
+    { number: "01", title: isMr ? "गरज निवडा" : "Choose a need", body: isMr ? "सेवा किंवा मदतीचा प्रकार निवडा." : "Select the service you require." },
+    { number: "02", title: isMr ? "तपशील भरा" : "Share details", body: isMr ? "स्थान आणि गरजांची थोडक्यात माहिती द्या." : "Add your location and request." },
+    { number: "03", title: isMr ? "पुढची कृती" : "Get next step", body: isMr ? "पडताळलेल्या सेवेशी संपर्क करा." : "Connect with the relevant provider." },
   ];
 
   return (
     <>
       <Header locale={locale} copy={copy.nav} />
       <main>
-        <section className="hero-section" id="home">
-          <div className="page-shell hero-grid">
-            <div className="hero-copy">
-              <p className="eyebrow hero-eyebrow"><span />{copy.hero.eyebrow}</p>
-              <h1>
-                {isMr ? "भारतीय शेतकऱ्याचा स्मार्ट" : copy.hero.title}{" "}
-                <em>{isMr ? "डिजिटल भागीदार" : copy.hero.emphasis}</em>
-              </h1>
-              <p className="hero-description">
-                {isMr
-                  ? "AI पीक डॉक्टर, आधुनिक अवजारे व शेतमजूर बुकिंग, थेट बाजारभाव, हवामान अंदाज आणि कौशल्य प्रशिक्षण — सर्व सेवा एकाच छताखाली!"
-                  : copy.hero.description}
-              </p>
-              <div className="hero-actions">
-                <Link className="button button-solid" href={`${home}/crop-doctor`}>
-                  🌿 {isMr ? "AI पीक डॉक्टर सुरू करा" : "Try AI Crop Doctor"}
-                  <ArrowIcon className="service-explore-arrow" />
-                </Link>
-                <Link className="button button-outline" href={`${home}/machinery`}>
-                  🚜 {isMr ? "अवजारे रेंटल शोधा" : "Browse Machinery"}
-                </Link>
-              </div>
-              <p className="hero-note">
-                <span aria-hidden="true" />
-                {isMr ? "AI किसान साथी • Powered by AGRI MBA वाला" : copy.hero.note}
-              </p>
-            </div>
-            <div className="hero-visual">
-              <FieldScene />
-              <div className="visual-label visual-label-top">LOCAL<br />KNOWLEDGE</div>
-              <div className="visual-label visual-label-bottom">FIELD<br />READY</div>
+        <section className="hero-band">
+          <div className="hero-band-image" aria-hidden="true" />
+          <div className="page-shell hero-band-content">
+            <p className="hero-kicker">{isMr ? "कृषी सेवा पोर्टल" : "Agriculture services"}</p>
+            <h1>{isMr ? "व्यावहारिक शेती सेवा, एका ठिकाणी" : "Practical farm services, in one place"}</h1>
+            <p>{isMr ? "अवजारे, मजूर, सेंद्रिय मार्गदर्शन आणि स्थानिक भागीदारी" : "Equipment, labour, organic guidance and local partnerships"}</p>
+            <div className="hero-actions">
+              <a className="button button-accent" href="#services">{isMr ? "सेवा पहा" : "Browse Services"}</a>
+              <a className="button button-white-outline" href="#contact">{isMr ? "संपर्क" : "Contact"}</a>
             </div>
           </div>
         </section>
 
-        {/* CORE SERVICES SECTION (FROM PRD & BLUEPRINT) */}
-        <section className="section services-section" id="services" style={{ background: "#ffffff" }}>
+        <section className="services-section" id="services">
           <div className="page-shell">
-            <div style={{ maxWidth: "46rem", margin: "0 auto 3rem", textAlign: "center" }}>
-              <p className="eyebrow" style={{ justifyContent: "center" }}>
-                {isMr ? "८ मुख्य सेवा विभाग (Service Modules)" : "Core Platform Modules"}
-              </p>
-              <h2 style={{ fontSize: "clamp(2rem, 4vw, 3.2rem)", color: "var(--brand-forest-strong)", margin: "0.5rem 0" }}>
-                {isMr ? "शेतकऱ्यांच्या सर्व गरजांसाठी एकात्मिक प्लॅटफॉर्म" : "Integrated Agricultural Platform for Farmers"}
-              </h2>
-              <p style={{ color: "var(--ink-muted)", fontSize: "1.05rem" }}>
-                {isMr
-                  ? "पेरणीपासून ते विक्रीपर्यंत प्रत्येक टप्प्यावर तांत्रिक व प्रत्यक्ष ग्राउंड सेवा."
-                  : "From sowing to harvest & mandi sale — discover all services in one place."}
-              </p>
+            <div className="section-heading-band">
+              <p>{isMr ? "कृषी सेवा" : "Agriculture services"}</p>
+              <h2>{isMr ? "उपयुक्त सेवा निवडा" : "Choose a service"}</h2>
             </div>
-
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(16.5rem, 1fr))", gap: "1.2rem" }}>
-              {coreServices.map((service, index) => (
-                <div
-                  key={service.href}
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "space-between",
-                    padding: "1.6rem",
-                    borderRadius: "1.1rem",
-                    border: "1px solid #dce8de",
-                    background: "#fbfdfb",
-                    transition: "transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease",
-                    textDecoration: "none",
-                  }}
-                  className="service-card"
-                >
-                  <div>
-                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.8rem" }}>
-                      <span style={{ fontSize: "1.8rem" }}>{service.icon}</span>
-                      <span style={{ background: "#e8f4e7", color: "var(--brand-forest)", padding: "0.2rem 0.5rem", borderRadius: "0.4rem", fontSize: "0.7rem", fontWeight: 800 }}>
-                        {service.comingSoon ? (isMr ? "लवकरच" : "Coming Soon") : service.badge}
-                      </span>
+            <div className="service-grid">
+              {services.map((service) => (
+                service.live ? (
+                  <Link key={service.href} href={service.href} className="service-card">
+                    <div className="service-card-image">
+                      <Image src={encodeURI(service.image)} alt={service.title} fill sizes="(max-width:600px) 50vw, (max-width:960px) 33vw, 25vw" />
                     </div>
-                    <h3 style={{ fontSize: "1.15rem", color: "var(--brand-forest-strong)", margin: "0.4rem 0 0.5rem" }}>
-                      {service.title}
-                    </h3>
-                    <p style={{ margin: 0, fontSize: "0.85rem", color: "var(--ink-muted)", lineHeight: 1.6 }}>
-                      {service.body}
-                    </p>
-                  </div>
-
-                  <div style={{ marginTop: "1.2rem", display: "flex", alignItems: "center", gap: "0.4rem", color: "var(--brand-leaf)", fontWeight: 700, fontSize: "0.85rem" }}>
-                    {service.comingSoon ? (
-                      <span>{isMr ? "लवकरच उपलब्ध" : "Coming soon"}</span>
-                    ) : (
-                      <Link href={service.href} className="service-explore-link">
-                        <span>{isMr ? "सुरू करा" : "Explore"}</span>
-                        <ArrowIcon className="service-explore-arrow" />
-                      </Link>
-                    )}
-                  </div>
-                </div>
+                    <div className="service-card-body">
+                      <h3>{service.title}</h3>
+                      <p>{service.body}</p>
+                      <div className="service-card-footer">
+                        <span className="status-tag live-tag">{isMr ? "उपलब्ध" : "Live"}</span>
+                        <span className="arrow-button" aria-label={isMr ? "सेवा उघडा" : "Open service"}><ArrowRight size={18} /></span>
+                      </div>
+                    </div>
+                  </Link>
+                ) : (
+                  <article key={service.href} className="service-card coming-soon-card">
+                    <div className="service-card-image">
+                      <span className="coming-soon-tag">{isMr ? "लवकरच" : "Coming soon"}</span>
+                      <Image src={encodeURI(service.image)} alt="" fill sizes="(max-width:600px) 50vw, (max-width:960px) 33vw, 25vw" />
+                    </div>
+                    <div className="service-card-body">
+                      <h3>{service.title}</h3>
+                      <p>{isMr ? "ही सेवा लवकरच उपलब्ध होईल" : "This service will be available soon"}</p>
+                      <div className="service-card-footer">
+                        <span className="status-tag soon-tag">{isMr ? "लवकरच" : "Coming soon"}</span>
+                        <span className="arrow-button arrow-disabled" aria-hidden="true"><ArrowRight size={18} /></span>
+                      </div>
+                    </div>
+                  </article>
+                )
               ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="section about-section" id="about">
-          <div className="page-shell about-grid">
-            <div className="section-heading"><p className="eyebrow">{copy.about.eyebrow}</p><h2>{copy.about.title}</h2><p className="section-intro">{copy.about.body}</p></div>
-            <div className="about-points">{copy.about.points.map(([title, body], index) => <article key={title}><span>0{index + 1}</span><h3>{title}</h3><p>{body}</p></article>)}</div>
-          </div>
-          <div className="page-shell vision-mission-grid">
-            {[copy.about.vision, copy.about.mission].map(([title, body]) => <article key={title}><p className="eyebrow">{title}</p><p>{body}</p></article>)}
-          </div>
-          <div className="page-shell about-subsection"><SectionHeading eyebrow="What guides us" title="Our core values" align="center" /><div className="values-grid">{copy.about.values.map(([title, body]) => <article key={title}><h3>{title}</h3><p>{body}</p></article>)}</div></div>
-          <div className="page-shell about-subsection"><SectionHeading eyebrow="The people behind the work" title="Meet our team" align="center" /><div className="team-grid">{copy.about.team.map(([title, role, body]) => <article key={title}><span>{title.charAt(0)}</span><p>{role}</p><h3>{title}</h3><small>{body}</small></article>)}</div></div>
-        </section>
-
-        <section className="section section-steps" id="how-it-works">
-          <div className="page-shell"><SectionHeading eyebrow={copy.steps.eyebrow} title={copy.steps.title} align="center" /><ol className="steps-list">{copy.steps.items.map(([number, title, body]) => <li key={title}><span>{number}</span><h3>{title}</h3><p>{body}</p></li>)}</ol></div>
-        </section>
-
-        <section className="section solutions-section">
-          <div className="page-shell"><SectionHeading eyebrow={copy.solutions.eyebrow} title={copy.solutions.title} body={copy.solutions.body} align="center" /><div className="solution-choice-grid"><Link className="solution-choice-card" href={`${home}/solutions/farmers`}><span className="solution-choice-number">01</span><h3>{copy.solutions.farmers.title}</h3><p>{copy.solutions.farmers.body}</p><span className="text-link">{copy.solutions.farmers.action}<ArrowIcon /></span></Link><Link className="solution-choice-card" href={`${home}/solutions/providers`}><span className="solution-choice-number">02</span><h3>{copy.solutions.providers.title}</h3><p>{copy.solutions.providers.body}</p><span className="text-link">{copy.solutions.providers.action}<ArrowIcon /></span></Link></div></div>
-        </section>
-
-        <section className="section partner-section" id="partner">
-          <div className="page-shell partner-simple">
-            <div>
-              <p className="eyebrow">{copy.partner.eyebrow}</p>
-              <h2>{copy.partner.title}</h2>
-              <p>{copy.partner.body}</p>
-              <ul>{copy.partner.bullets.map((item) => <li key={item}><CheckIcon />{item}</li>)}</ul>
-              <Link className="button button-outline-light" href={`${home}/partner-mou`}>
-                {isMr ? "कृषी सेवा केंद्र भागीदारी करारनामा (MoU)" : copy.partner.action}
-                <ArrowIcon />
+              <Link href={whatsappHref} target="_blank" rel="noreferrer" className="whatsapp-card">
+                <MessageCircle size={24} strokeWidth={1.8} />
+                <span>
+                  <strong>{isMr ? "मदत हवी?" : "Need help?"}</strong>
+                  <small>{isMr ? "WhatsApp वर संपर्क करा" : "Chat on WhatsApp"}</small>
+                </span>
+                <ArrowRight size={18} />
               </Link>
             </div>
           </div>
         </section>
 
-        <section className="section contact-section" id="contact">
-          <div className="page-shell contact-card">
-            <div className="contact-form-panel">
-              <p className="eyebrow">{copy.nav.contact}</p>
+        <section className="solutions-section" id="solutions">
+          <div className="page-shell">
+            <div className="section-heading-band">
+              <p>{isMr ? "योग्य पर्याय निवडा" : "Choose your path"}</p>
+              <h2>{isMr ? "तुमच्या भूमिकेसाठी सेवा" : "Solutions for your role"}</h2>
+            </div>
+            <div className="solutions-grid">
+              <article className="solution-card">
+                <div className="solution-icon"><Sprout size={24} /></div>
+                <div><h3>{isMr ? "शेतकऱ्यांसाठी" : "For Farmers"}</h3><p>{isMr ? "मार्गदर्शन, अवजारे आणि स्थानिक सेवा शोधा." : "Find guidance, machinery and local services."}</p></div>
+                <Link className="button button-outline" href={`${home}/solutions/farmers`}>{isMr ? "उपाय पहा" : "View solutions"}<ArrowRight size={16} /></Link>
+              </article>
+              <article className="solution-card">
+                <div className="solution-icon"><Handshake size={24} /></div>
+                <div><h3>{isMr ? "सेवा पुरवठादारांसाठी" : "For Providers"}</h3><p>{isMr ? "तुमच्या सेवेसाठी भागीदारी नोंदवा." : "Register your equipment or rural service."}</p></div>
+                <Link className="button button-outline" href={`${home}/solutions/providers`}>{isMr ? "नोंदणी करा" : "Register"}<ArrowRight size={16} /></Link>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section className="how-section" id="how-it-works">
+          <div className="page-shell">
+            <div className="section-heading-band">
+              <p>{isMr ? "कसे काम करते" : "How it works"}</p>
+              <h2>{isMr ? "तीन सोपे टप्पे" : "Three simple steps"}</h2>
+            </div>
+            <div className="steps-strip">
+              {steps.map((step) => (
+                <article key={step.number}>
+                  <span>{step.number}</span>
+                  <div><h3>{step.title}</h3><p>{step.body}</p></div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="about-section" id="about">
+          <div className="page-shell about-block">
+            <div className="mission-panel">
+              <div className="section-heading-band">
+                <p>{copy.about.eyebrow}</p>
+                <h2>{isMr ? "आमचे ध्येय" : "Our mission"}</h2>
+              </div>
+              <p className="mission-statement">{copy.about.vision[1]}</p>
+            </div>
+            <div className="values-panel">
+              <div className="section-heading-band">
+                <p>{isMr ? "आमची तत्त्वे" : "Our principles"}</p>
+                <h2>{isMr ? "मुख्य मूल्ये" : "Core values"}</h2>
+              </div>
+              <div className="values-grid">
+                {copy.about.values.map(([title, body]) => (
+                  <article key={title}><span><Check size={16} /></span><div><h3>{title}</h3><p>{body}</p></div></article>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="team-section" id="team">
+          <div className="page-shell">
+            <div className="section-heading-band">
+              <p>{isMr ? "नेतृत्व" : "Leadership"}</p>
+              <h2>{isMr ? "आमची टीम" : "Meet the team"}</h2>
+            </div>
+            <div className="team-strip">
+              {copy.about.team.map(([name, role, body]) => (
+                <article key={name}>
+                  <span className="avatar-block">{name.split(" ").map((part) => part[0]).join("").slice(0, 2)}</span>
+                  <div><h3>{name}</h3><p className="team-role">{role}</p><p>{body}</p></div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="contact-section" id="contact">
+          <div className="page-shell contact-layout">
+            <div className="contact-info">
+              <p className="eyebrow-on-green">{copy.nav.contact}</p>
               <h2>{copy.form.contactTitle}</h2>
               <p>{copy.form.contactBody}</p>
-              <InquiryForm kind="contact" copy={copy.form} />
+              <address>
+                <span><MapPin size={18} /> {copy.footer.address}</span>
+                <a href={`tel:${copy.footer.phone.replace(/\s/g, "")}`}><Phone size={18} /> {copy.footer.phone}</a>
+                <a href={`mailto:${copy.footer.email}`}><Mail size={18} /> {copy.footer.email}</a>
+              </address>
             </div>
-            <div className="contact-visual">
-              <FieldScene />
-              <div className="contact-visual-overlay">
-                <div className="contact-details">
-                  <p><span>Visit us</span><strong>{copy.footer.address}</strong></p>
-                  <a href={`mailto:${copy.footer.email}`}><span>Email us</span><strong>{copy.footer.email}</strong></a>
-                  <a href={`tel:${copy.footer.phone.replace(/\s/g, "")}`}><span>Call us</span><strong>{copy.footer.phone}</strong></a>
-                </div>
-                <div className="social-links">
-                  {copy.footer.socials.map(([label, href]) => (
-                    <a key={label} href={href} target="_blank" rel="noreferrer" aria-label={label}>
-                      <SocialIcon name={label as "Instagram" | "Facebook"} />
-                    </a>
-                  ))}
-                  <span className="social-link-disabled" aria-label="LinkedIn coming soon"><SocialIcon name="LinkedIn" /></span>
-                  <span className="social-link-disabled" aria-label="X coming soon"><SocialIcon name="X" /></span>
-                </div>
-              </div>
+            <div className="contact-form">
+              <InquiryForm kind="contact" copy={copy.form} />
             </div>
           </div>
         </section>
       </main>
       <Footer locale={locale} copy={copy.footer} nav={copy.nav} />
-      <a className="whatsapp-button" href={whatsappHref} target="_blank" rel="noreferrer" aria-label={copy.whatsapp}>
-        <WhatsAppIcon />
-        <span>{copy.whatsapp}</span>
-      </a>
     </>
   );
 }

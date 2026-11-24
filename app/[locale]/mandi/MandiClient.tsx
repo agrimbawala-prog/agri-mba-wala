@@ -106,7 +106,7 @@ export function MandiClient({ locale, initialRates }: Props) {
                       fontWeight: 800,
                     }}
                   >
-                    {item.trend === "up" ? "📈 तेजी (Up)" : item.trend === "down" ? "📉 मंदी (Down)" : "➖ स्थिर (Stable)"}
+                    {item.trend === "up" ? "तेजी (Up)" : item.trend === "down" ? "मंदी (Down)" : "स्थिर (Stable)"}
                   </span>
                 </div>
 
@@ -152,7 +152,7 @@ export function MandiClient({ locale, initialRates }: Props) {
                   दिनांक: {item.date}
                 </span>
                 <a
-                  href={`https://wa.me/?text=${encodeURIComponent(`🌾 *AI किसान साथी बाजारभाव:* ${item.commodityMr} (${item.marketName}) - सर्वसाधारण भाव: ₹${item.modalPrice}/${item.unit}`)}`}
+                  href={`https://wa.me/?text=${encodeURIComponent(`*AI किसान साथी बाजारभाव:* ${item.commodityMr} (${item.marketName}) - सर्वसाधारण भाव: ₹${item.modalPrice}/${item.unit}`)}`}
                   target="_blank"
                   rel="noreferrer"
                   style={{ fontSize: "0.78rem", fontWeight: 700, color: "var(--brand-leaf)", textDecoration: "none" }}

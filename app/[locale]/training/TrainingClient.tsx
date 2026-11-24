@@ -119,7 +119,7 @@ export function TrainingClient({ locale, courses, initialEnrollments }: Props) {
               </div>
 
               <div style={{ marginBottom: "1.5rem", fontSize: "0.85rem", color: "var(--ink-muted)", background: "#f8faf8", padding: "0.8rem 1rem", borderRadius: "0.6rem" }}>
-                <div>📍 <strong>{isMr ? "ठिकाण:" : "Location:"}</strong> {selectedCourse.location}</div>
+                <div><strong>{isMr ? "ठिकाण:" : "Location:"}</strong> {selectedCourse.location}</div>
                 <div style={{ marginTop: "0.3rem" }}>📅 <strong>{isMr ? "पुढील बॅच:" : "Next Batch:"}</strong> {selectedCourse.nextBatchDate}</div>
               </div>
 
@@ -358,7 +358,7 @@ export function TrainingClient({ locale, courses, initialEnrollments }: Props) {
                   className="button button-solid"
                   style={{ fontSize: "0.8rem", padding: "0.5rem 1.2rem" }}
                 >
-                  🖨️ प्रमाणपत्र प्रिंट / सेव्ह करा (Print PDF)
+                  प्रमाणपत्र प्रिंट / सेव्ह करा
                 </button>
               </div>
             </div>

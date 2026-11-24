@@ -19,7 +19,7 @@ type DiagnosisResult = {
 const SAMPLE_CROPS = [
   { name: "कांदा (Onion)", issue: "पानांवर जांभळे डाग, शेंडे पिवळे पडणे व जळणे", icon: "🧅" },
   { name: "सोयाबीन (Soybean)", issue: "पानांच्या मागील बाजूस तांबूस तपकिरी ठिपके", icon: "🌱" },
-  { name: "कापूस (Cotton)", issue: "बोंडांमध्ये अळीचा प्रादुर्भाव व पाने आकसणे", icon: "🌾" },
+  { name: "कापूस (Cotton)", issue: "बोंडांमध्ये अळीचा प्रादुर्भाव व पाने आकसणे", icon: "" },
   { name: "टोमॅटो (Tomato)", issue: "पानांवर काळे गोलाकार डाग व फळे सडणे", icon: "🍅" },
   { name: "द्राक्षे (Grapes)", issue: "पानांवर पांढुरकी बुरशी व मण्यांवर डाग", icon: "🍇" },
   { name: "डाळिंब (Pomegranate)", issue: "फळांवर काळे तेलकट डाग व भेगा पडणे", icon: "🫐" },
@@ -102,12 +102,12 @@ export function CropDoctorClient({ locale }: { locale: string }) {
 
   const whatsappShareText = result
     ? encodeURIComponent(
-        `🌿 *AI किसान साथी — पीक रोग निदान सल्ला*\n\n` +
-        `🌾 *पीक:* ${result.cropName}\n` +
+        `*AI किसान साथी — पीक रोग निदान सल्ला*\n\n` +
+        `*पीक:* ${result.cropName}\n` +
         `🚨 *रोग:* ${result.diseaseNameMr} (${result.diseaseNameEn})\n` +
         `🎯 *अचूकता:* ${result.confidence}%\n\n` +
-        `🍃 *सेंद्रिय उपाय:* ${result.organicRemedy}\n\n` +
-        `🧪 *रासायनिक फवारणी:* ${result.chemicalRemedy}\n\n` +
+        `*सेंद्रिय उपाय:* ${result.organicRemedy}\n\n` +
+        `*रासायनिक फवारणी:* ${result.chemicalRemedy}\n\n` +
         `⏰ *वेळापत्रक:* ${result.preventionSchedule}\n\n` +
         `_AI Kisan Sathi - Powered by AGRI MBA वाला_`
       )
@@ -305,7 +305,7 @@ export function CropDoctorClient({ locale }: { locale: string }) {
 
                 <div style={{ background: "#fffdf3", padding: "1rem", borderRadius: "0.8rem", borderLeft: "4px solid var(--brand-sun)" }}>
                   <h3 style={{ margin: "0 0 0.4rem", fontSize: "0.95rem", color: "var(--brand-earth)" }}>
-                    🧪 {isMr ? "रासायनिक औषध फवारणी व प्रमाण" : "Recommended Chemical Treatment"}
+                    {isMr ? "रासायनिक औषध फवारणी व प्रमाण" : "Recommended Chemical Treatment"}
                   </h3>
                   <p style={{ margin: 0, fontSize: "0.88rem", color: "#544322", lineHeight: 1.6 }}>{result.chemicalRemedy}</p>
                 </div>

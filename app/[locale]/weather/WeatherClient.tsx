@@ -31,7 +31,7 @@ export function WeatherClient({ locale, initialAdvisories }: Props) {
           bg: "#fff6e0",
           text: "#8c5b05",
           border: "#f6ae32",
-          title: isMr ? "⚠️ सावधगिरीने फवारणी करा (दुपारची वेळ टाळा)" : "⚠️ Caution (Avoid Afternoon Heat)",
+          title: isMr ? "सावधगिरीने फवारणी करा (दुपारची वेळ टाळा)" : "Caution (Avoid Afternoon Heat)",
         };
       case "avoid":
         return {
@@ -80,7 +80,7 @@ export function WeatherClient({ locale, initialAdvisories }: Props) {
                   transition: "all 0.15s ease",
                 }}
               >
-                📍 {advisory.district}
+                {advisory.district}
               </button>
             ))}
           </div>
@@ -111,7 +111,7 @@ export function WeatherClient({ locale, initialAdvisories }: Props) {
                     </span>
                   </h2>
                   <p style={{ margin: 0, color: "var(--brand-leaf)", fontWeight: 700, fontSize: "0.95rem" }}>
-                    ☀️ {current.conditionMr}
+                    {current.conditionMr}
                   </p>
                 </div>
 
@@ -144,7 +144,7 @@ export function WeatherClient({ locale, initialAdvisories }: Props) {
                     {badge.title}
                   </h3>
                   <a
-                    href={`https://wa.me/?text=${encodeURIComponent(`🌦️ *AI किसान साथी हवामान व फवारणी अलर्ट (${current.district}):*\n\nतापमान: ${current.tempMax}°C, पाऊस शक्यता: ${current.rainProbability}%\n\n📢 *फवारणी सल्ला:* ${current.sprayAdvisoryMr}`)}`}
+                    href={`https://wa.me/?text=${encodeURIComponent(`*AI किसान साथी हवामान व फवारणी अलर्ट (${current.district}):*\n\nतापमान: ${current.tempMax}°C, पाऊस शक्यता: ${current.rainProbability}%\n\n*फवारणी सल्ला:* ${current.sprayAdvisoryMr}`)}`}
                     target="_blank"
                     rel="noreferrer"
                     style={{
@@ -191,7 +191,7 @@ export function WeatherClient({ locale, initialAdvisories }: Props) {
                       {day.day}
                     </strong>
                     <div style={{ fontSize: "1.1rem", margin: "0.4rem 0" }}>
-                      {day.rain > 30 ? "🌧️" : day.rain > 15 ? "⛅" : "☀️"}
+                      {day.rain > 30 ? "Heavy" : day.rain > 15 ? "Cloudy" : "Clear"}
                     </div>
                     <span style={{ display: "block", fontSize: "0.85rem", fontWeight: 700, color: "var(--brand-forest-strong)" }}>
                       {day.temp}

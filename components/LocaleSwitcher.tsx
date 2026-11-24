@@ -15,7 +15,7 @@ export function LocaleSwitcher({ locale, path = "" }: LocaleSwitcherProps) {
 
   return (
     <nav aria-label="Language">
-      <ul className="flex items-center gap-1 rounded-full border border-[var(--line)] bg-[var(--surface-mist)] p-1">
+      <ul className="locale-list">
         {locales.map((targetLocale) => {
           const isCurrent = targetLocale === locale;
 
@@ -26,8 +26,8 @@ export function LocaleSwitcher({ locale, path = "" }: LocaleSwitcherProps) {
                 aria-label={targetLocale === "en" ? "English" : "मराठी"}
                 className={
                   isCurrent
-                    ? "block rounded-full bg-[var(--brand-sun)] px-3 py-1.5 text-sm font-bold text-[var(--brand-forest-strong)]"
-                    : "block rounded-full px-3 py-1.5 text-sm font-semibold text-[var(--brand-forest)] transition-colors hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--brand-forest)]"
+                    ? "locale-link is-current"
+                    : "locale-link"
                 }
                 href={"/" + targetLocale + path}
                 lang={targetLocale}

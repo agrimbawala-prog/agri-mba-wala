@@ -39,7 +39,7 @@ export function OrganicClient({ locale }: { locale: string }) {
                 cursor: "pointer",
               }}
             >
-              🌿 {isMr ? "जीवामृत व घनजीवामृत" : "Jeevamrut Guide"}
+              {isMr ? "जीवामृत व घनजीवामृत" : "Jeevamrut Guide"}
             </button>
             <button
               type="button"
@@ -55,7 +55,7 @@ export function OrganicClient({ locale }: { locale: string }) {
                 cursor: "pointer",
               }}
             >
-              🍃 {isMr ? "दशपर्णी अर्क कीड नियंत्रण" : "Dashaparni Ark"}
+              {isMr ? "दशपर्णी अर्क कीड नियंत्रण" : "Dashaparni Ark"}
             </button>
             <button
               type="button"
@@ -145,7 +145,7 @@ export function OrganicClient({ locale }: { locale: string }) {
 
             <div style={{ background: "#f9fcf9", padding: "1.5rem", borderRadius: "0.8rem", border: "1px solid #e4eee5", marginBottom: "1.5rem" }}>
               <h3 style={{ fontSize: "1rem", color: "var(--brand-forest)", margin: "0 0 0.8rem" }}>
-                🌿 {isMr ? "१० प्रमुख कडू व तुरट वनस्पतींची पाने (प्रत्येकी २ किलो):" : "10 Key Herbal Leaves (2 kg each):"}
+                {isMr ? "१० प्रमुख कडू व तुरट वनस्पतींची पाने (प्रत्येकी २ किलो):" : "10 Key Herbal Leaves (2 kg each):"}
               </h3>
               <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "0.5rem", fontSize: "0.85rem", color: "var(--ink)" }}>
                 <div>१. कडुलिंब (Neem) - ५ किलो</div>

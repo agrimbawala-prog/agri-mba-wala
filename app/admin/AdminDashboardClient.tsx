@@ -121,12 +121,12 @@ export function AdminDashboardClient({
       {/* Navigation Tabs */}
       <div style={{ display: "flex", gap: "0.5rem", overflowX: "auto", borderBottom: "2px solid #deeadf", marginBottom: "1.5rem", paddingBottom: "0.2rem" }}>
         {[
-          { id: "overview", label: "📊 ओव्हरव्ह्यू (Analytics)" },
+          { id: "overview", label: "ओव्हरव्ह्यू" },
           { id: "bookings", label: `📦 बुकिंग्ज (${bookings.length})` },
-          { id: "machinery", label: `🚜 अवजारे यादी (${machinery.length})` },
-          { id: "labor", label: `👥 मजूर टोळ्या (${laborGroups.length})` },
-          { id: "partners", label: `🏢 कृषी केंद्र MoU (${partners.length})` },
-          { id: "training", label: `🎓 ट्रेनिंग बॅच (${enrollments.length})` },
+          { id: "machinery", label: `अवजारे यादी (${machinery.length})` },
+          { id: "labor", label: `मजूर टोळ्या (${laborGroups.length})` },
+          { id: "partners", label: `कृषी केंद्र MoU (${partners.length})` },
+          { id: "training", label: `ट्रेनिंग बॅच (${enrollments.length})` },
           { id: "diagnoses", label: `🔬 AI पीक सल्ला (${diagnoses.length})` },
           { id: "inquiries", label: `📨 चौकशी फॉर्म (${submissions.length})` },
         ].map((tab) => (

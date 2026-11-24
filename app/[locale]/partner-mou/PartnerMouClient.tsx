@@ -131,7 +131,7 @@ export function PartnerMouClient({ locale, initialPartners }: Props) {
                 onClick={() => window.print()}
                 className="button button-solid"
               >
-                🖨️ करारनामा सेव्ह / प्रिंट करा (Print Agreement)
+                करारनामा सेव्ह / प्रिंट करा
               </button>
             </div>
           </div>

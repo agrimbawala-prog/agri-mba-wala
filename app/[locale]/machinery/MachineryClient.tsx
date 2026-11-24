@@ -171,7 +171,7 @@ export function MachineryClient({ locale, initialList }: Props) {
                 transition: "all 0.2s ease",
               }}
             >
-              🚜 {isMr ? "उपलब्ध अवजारे शोधा व बुक करा" : "Find & Book Equipment"}
+              {isMr ? "उपलब्ध अवजारे शोधा व बुक करा" : "Find & Book Equipment"}
             </button>
             <button
               type="button"
@@ -275,7 +275,7 @@ export function MachineryClient({ locale, initialList }: Props) {
                       {item.equipmentName}
                     </h3>
                     <p style={{ margin: "0 0 0.8rem", color: "var(--ink-muted)", fontSize: "0.84rem" }}>
-                      📍 मु. {item.village}, ता. {item.taluka}, जि. {item.district}
+                      मु. {item.village}, ता. {item.taluka}, जि. {item.district}
                     </p>
 
                     <div style={{ background: "#f8faf8", padding: "0.8rem", borderRadius: "0.6rem", marginBottom: "1rem" }}>

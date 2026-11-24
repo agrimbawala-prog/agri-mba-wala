@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Inter, Noto_Sans_Devanagari } from "next/font/google";
 import { notFound } from "next/navigation";
 
 import { getDictionary } from "@/lib/i18n/dictionaries";
@@ -6,6 +7,18 @@ import { hasLocale, locales } from "@/lib/i18n/config";
 import { getSiteUrl } from "@/lib/site-url";
 
 import "../globals.css";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const notoSansDevanagari = Noto_Sans_Devanagari({
+  subsets: ["devanagari", "latin"],
+  variable: "--font-noto-devanagari",
+  display: "swap",
+});
 
 type LocaleLayoutProps = {
   children: React.ReactNode;
@@ -75,7 +88,7 @@ export default async function LocaleLayout({
   }
 
   return (
-    <html lang={locale} className="h-full antialiased">
+    <html lang={locale} className={`h-full antialiased ${inter.variable} ${notoSansDevanagari.variable}`}>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
