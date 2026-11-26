@@ -24,38 +24,38 @@ export function Header({ locale, copy, path = "" }: HeaderProps) {
   const closeMenu = () => setIsOpen(false);
 
   return (
-    <header className="site-header">
-      <div className="page-shell header-inner">
-        <Link aria-label="AGRI MBA WALA home" href={home} className="header-logo" onClick={closeMenu}>
-          <BrandLogo priority />
+    <header className="sticky top-0 z-40 h-[56px] border-b-[3px] border-[#F9A825] bg-[#1B5E20] text-white">
+      <div className="mx-auto flex h-[53px] w-[calc(100%-24px)] max-w-[1180px] items-center gap-3 max-[600px]:w-[calc(100%-16px)] max-[600px]:gap-1.5">
+        <Link aria-label="AGRI MBA WALA home" href={home} className="block h-10 w-10 flex-none overflow-hidden max-[600px]:h-9 max-[600px]:w-9" onClick={closeMenu}>
+          <BrandLogo priority className="h-10 w-10 !rounded-full object-cover max-[600px]:h-9 max-[600px]:w-9" />
         </Link>
-        <nav className="desktop-nav" aria-label="Primary navigation">
-          <Link href={home} className={pathname === home ? "active-nav-link" : undefined}>{copy.home}</Link>
+        <nav className="ml-auto hidden h-[53px] items-center gap-0.5 min-[961px]:flex" aria-label="Primary navigation">
+          <Link href={home} className={`flex h-[53px] items-center gap-1 border-b-[3px] px-2.5 text-[13px] font-bold ${pathname === home ? "border-[#F9A825] bg-white/10" : "border-transparent"}`}>{copy.home}</Link>
           <ServicesMenu locale={locale} />
-          <Link href={`${home}#about`}>{locale === "mr" ? "आमच्याबद्दल" : "About"}</Link>
-          <Link href={`${home}#contact`}>{copy.contact}</Link>
+          <Link href={`${home}#about`} className="flex h-[53px] items-center px-2.5 text-[13px] font-bold">{locale === "mr" ? "आमच्याबद्दल" : "About"}</Link>
+          <Link href={`${home}#contact`} className="flex h-[53px] items-center px-2.5 text-[13px] font-bold">{copy.contact}</Link>
         </nav>
-        <div className="header-actions">
+        <div className="ml-auto flex items-center gap-1.5 min-[961px]:ml-0">
           <LocaleSwitcher locale={locale} path={path} />
-          <button className="menu-button" aria-expanded={isOpen} aria-controls="mobile-menu" onClick={() => setIsOpen((current) => !current)}>
-            <span className="sr-only">{isOpen ? "Close navigation" : "Open navigation"}</span>
+          <button className="flex h-10 w-10 items-center justify-center border border-white/45 bg-transparent text-white min-[961px]:hidden" aria-expanded={isOpen} aria-controls="mobile-menu" onClick={() => setIsOpen((current) => !current)}>
+            <span className="absolute h-px w-px overflow-hidden">{isOpen ? "Close navigation" : "Open navigation"}</span>
             {isOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
       </div>
-      <div id="mobile-menu" className={isOpen ? "mobile-menu mobile-menu-open" : "mobile-menu"} aria-hidden={!isOpen}>
-        <nav aria-label="Mobile navigation">
-          <Link href={home} onClick={closeMenu}>{copy.home}</Link>
+      <div id="mobile-menu" className={isOpen ? "fixed left-0 right-0 top-[56px] max-h-[calc(100vh-56px)] overflow-y-auto border-b border-[#D5DCD0] bg-white text-[#10210F]" : "hidden"} aria-hidden={!isOpen}>
+        <nav className="grid px-3 py-2" aria-label="Mobile navigation">
+          <Link className="flex min-h-11 items-center border-t border-[#D5DCD0] px-2 text-[13px] font-bold" href={home} onClick={closeMenu}>{copy.home}</Link>
           <ServicesMenu locale={locale} onNavigate={closeMenu} />
-          <Link href={`${home}#about`} onClick={closeMenu}>{locale === "mr" ? "आमच्याबद्दल" : "About"}</Link>
-          <Link href={`${home}#contact`} onClick={closeMenu}>{copy.contact}</Link>
+          <Link className="flex min-h-11 items-center border-t border-[#D5DCD0] px-2 text-[13px] font-bold" href={`${home}#about`} onClick={closeMenu}>{locale === "mr" ? "आमच्याबद्दल" : "About"}</Link>
+          <Link className="flex min-h-11 items-center border-t border-[#D5DCD0] px-2 text-[13px] font-bold" href={`${home}#contact`} onClick={closeMenu}>{copy.contact}</Link>
         </nav>
       </div>
-      <nav className="bottom-tabs" aria-label="Mobile navigation">
-        <Link href={home}><House size={18} /><span>{locale === "mr" ? "मुख्य" : "Home"}</span></Link>
-        <Link href={`${home}#services`}><LayoutGrid size={18} /><span>{locale === "mr" ? "सेवा" : "Services"}</span></Link>
-        <Link href={`${home}#about`}><Info size={18} /><span>{locale === "mr" ? "माहिती" : "About"}</span></Link>
-        <Link href={`${home}#contact`}><Phone size={18} /><span>{locale === "mr" ? "संपर्क" : "Contact"}</span></Link>
+      <nav className="bottom-tabs fixed bottom-0 left-0 right-0 z-[45] hidden h-14 grid-cols-4 border-t border-[#D5DCD0] bg-white max-[600px]:grid" aria-label="Mobile navigation">
+        <Link className="flex min-w-0 flex-col items-center justify-center gap-0.5 border-t-2 border-[#F9A825] text-[11px] font-extrabold text-[#1B5E20]" href={home}><House size={18} /><span>{locale === "mr" ? "मुख्य" : "Home"}</span></Link>
+        <Link className="flex min-w-0 flex-col items-center justify-center gap-0.5 text-[11px] font-extrabold text-[#4F5F4E]" href={`${home}#services`}><LayoutGrid size={18} /><span>{locale === "mr" ? "सेवा" : "Services"}</span></Link>
+        <Link className="flex min-w-0 flex-col items-center justify-center gap-0.5 text-[11px] font-extrabold text-[#4F5F4E]" href={`${home}#about`}><Info size={18} /><span>{locale === "mr" ? "माहिती" : "About"}</span></Link>
+        <Link className="flex min-w-0 flex-col items-center justify-center gap-0.5 text-[11px] font-extrabold text-[#4F5F4E]" href={`${home}#contact`}><Phone size={18} /><span>{locale === "mr" ? "संपर्क" : "Contact"}</span></Link>
       </nav>
     </header>
   );
@@ -81,20 +81,20 @@ function ServicesMenu({ locale, onNavigate }: { locale: Locale; onNavigate?: () 
   ];
 
   return (
-    <details className="services-menu" open={isOpen} onMouseEnter={() => setIsOpen(true)} onMouseLeave={() => setIsOpen(false)}>
-      <summary onClick={(event) => { event.preventDefault(); setIsOpen((current) => !current); }}>
+    <details className="relative h-[53px] max-[960px]:h-auto max-[960px]:w-full" open={isOpen} onMouseEnter={() => setIsOpen(true)} onMouseLeave={() => setIsOpen(false)}>
+      <summary className="flex h-[53px] list-none cursor-pointer items-center gap-1 max-[960px]:h-11" onClick={(event) => { event.preventDefault(); setIsOpen((current) => !current); }}>
         {isMr ? "सेवा" : "Services"} <ChevronDown size={14} />
       </summary>
-      <div className="services-dropdown">
+      <div className="absolute right-[-40px] top-[53px] z-50 w-[300px] border border-[#D5DCD0] bg-white p-1 shadow-[0_4px_10px_rgba(16,33,15,.10)] max-[960px]:static max-[960px]:w-full max-[960px]:border-0 max-[960px]:border-t max-[960px]:shadow-none">
         {services.map((item) => {
           const Icon = item.icon;
           return item.active ? (
-            <Link key={item.href} href={item.href} onClick={closeMenu} className={pathname === item.href ? "active-solution-link" : undefined}>
+            <Link key={item.href} href={item.href} onClick={closeMenu} className={`grid min-h-10 grid-cols-[24px_1fr] items-center gap-2 p-2 text-[#10210F] hover:bg-[#E8F5E9] ${pathname === item.href ? "bg-[#E8F5E9]" : ""}`}>
               <Icon size={20} strokeWidth={1.8} />
-              <span><strong>{item.title}</strong></span>
+              <span><strong className="block text-[13px]">{item.title}</strong></span>
             </Link>
           ) : (
-            <div key={item.href} className="coming-soon-menu-item" aria-disabled="true">
+            <div key={item.href} className="grid min-h-10 grid-cols-[24px_1fr] items-center gap-2 bg-[#F4F6F1] p-2 text-[#4F5F4E]" aria-disabled="true">
               <Icon size={20} strokeWidth={1.8} />
               <span><strong>{item.title}</strong><small>{isMr ? "लवकरच" : "Coming soon"}</small></span>
             </div>

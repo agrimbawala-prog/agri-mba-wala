@@ -89,7 +89,7 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} className={`h-full antialiased ${inter.variable} ${notoSansDevanagari.variable}`}>
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col bg-[#F4F6F1] text-[14px] leading-[1.5] text-[#2B3A2A] font-[family-name:var(--font-inter)] [font-family:Noto_Sans_Devanagari,var(--font-inter),system-ui,sans-serif]">{children}</body>
     </html>
   );
 }
